@@ -1,0 +1,27 @@
+MySQL
+C#
+ASP.NET or maybe PHP
+Xamarin
+
+create account
+edit account
+delete account 
+
+edit cupboards
+add cupboards
+delete cupboards
+
+enter in items
+in said cupboards
+
+choose a meal
+removes items from cupboard
+
+
+
+
+need a database with some meals as well as some ingredients to make these
+with some normal amounts i.e 6 tins of something packs of 4 
+a bunch of fruits
+
+possible 

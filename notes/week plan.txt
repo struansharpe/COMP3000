@@ -1,0 +1,23 @@
+Create database 
+
+fix primary keys x
+ foreign keys  x
+not null       x
+
+more constraints x
+
+create triggers 
+sequences
+
+shopping list add item
+
+and 
+
+
+Create simple UI
+
+5 pages?
+
+start the aint coursework
+
+do research

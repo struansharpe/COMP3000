@@ -1,0 +1,122 @@
+
+// Create statement for creating user table which has the username and basic credentials 
+CREATE TABLE User(
+Username varchar (16) NOT NULL,
+First_name varchar (16) NOT NULL,
+Last_name varchar(16)NOT NULL,
+Password(??????)NOT NULL,
+PRIMARY KEY (Username),
+UNIQUE(Username)
+);
+
+
+
+// this is the composite key to attach the user to their storage
+CREATE TABLE Storage(
+Username varchar(16),
+Cupboard_ID int,
+Room_ID int,
+PRIMARY KEY (Cupboard_ID, Room_ID, Username),
+FOREIGN KEY (Room_ID) REFERENCES Room(Room_ID),
+FOREIGN KEY (Username) REFERENCES User(Username)
+FOREIGN KEY (Cupboard_ID) REFERENCES Cupboard(Cupboard_ID)
+);		
+
+
+
+// create statement for the room which contains its name 
+CREATE TABLE Room(
+Room_ID int NOT NULL,
+Name varchar (16) NOT NULL,
+PRIMARY KEY (Room_ID),
+UNIQUE(Room_ID)
+);
+
+
+
+// create statement for the cupboard, has Room_id as a foreign key 
+CREATE TABLE Cupboard(
+Cupboard_ID int NOT NULL,
+Room_ID int,
+Position varchar(16),
+Name varchar(16) NOT NULL,
+PRIMARY KEY (Cupboard_ID),
+FOREIGN_KEY (Room_ID) REFERENCES Storage(Room_ID),
+UNIQUE(Cupboard_ID)
+);
+
+
+
+// create statement for the items table which holds name weight and quantity of the item
+CREATE TABLE Item(
+Item_ID int NOT NULL,
+Name varchar(16) NOT NULL,
+Weight int,
+Quantity int NOT NULL,
+Info varchar (100),
+PRIMARY KEY (Item_ID)
+UNIQUE(Item_ID)
+);
+
+!!!!!!!!!
+up to here is definitely correct i fucking hope!!!!!!!!!!!
+
+// linker table to connect the items to the cupboard 
+CREATE TABLE Cupboard_Items(
+Cupboard_ID int,
+Item_ID int,
+Counter int,
+Current_Weight int,
+Best_before date,
+PRIMARY KEY (Cupboard_ID, Item_ID, Counter),
+FOREIGN KEY (Item_ID) REFERENCES Item(Item_ID),
+FOREIGN KEY(Cupboard_ID) REFERENCES Cupboard(Cupboard_ID)
+
+);
+
+
+
+CREATE TABLE Desired_Store(
+Username varchar (16),
+Item_ID int,
+Desired_Quantity int,
+Cupboard_ID int,
+Desired_Weight int,
+PRIMARY KEY (Username, Item_ID),
+FOREIGN KEY (Username) REFERENCES User(Username),
+FOREIGN KEY (Item_ID) REFERENCES Item(Item_ID),
+FOREIGN KEY (Cupboard_ID) REFERENCES Cupboard(Cupboard_ID)
+);
+
+
+
+CREATE TABLE Meal(
+Meal_ID  NOT NULL
+Meal_Name varchar (16) NOT NULL,
+Description varchar (50) NOT NULL,
+Instructions varchar(200) NOT NULL,
+PRIMARY KEY (Meal_ID),
+UNIQUE(Meal_ID)
+ );
+
+
+
+CREATE TABLE Meal_Ingredients(
+Meal_ID int,
+Item_ID int,
+Quantity int,
+Weight int
+PRIMARY KEY (Meal_ID, Item_ID),
+FOREIGN KEY (Meal_ID) REFERENCES Meal(Meal_ID),
+FOREIGN KEY (Item_ID) REFERENCES Item(Item_ID)
+);	
+
+
+CREATE TABLE Shopping_List(
+Username varchar,
+Item_ID int,
+quantity int NOT NULL,
+PRIMARY KEY (Username,Item_ID)
+FOREIGN KEY (Username) REFERENCES User(Username),
+FOREIGN KEY (Item_ID) REFERENCES Item(Item_ID)
+);

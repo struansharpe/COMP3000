@@ -1,0 +1,10 @@
+USE COMP3000_SSharpe
+GO
+
+CREATE TABLE Users
+(Username varchar (16) PRIMARY KEY NOT NULL,
+CONSTRAINT AK_Username UNIQUE(Username),
+First_name varchar(16) NOT NULL,
+Last_name varchar(16) NOT NULL,
+Password varchar(16) NOT NULL);
+GO
