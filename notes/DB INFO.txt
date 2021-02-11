@@ -3,7 +3,9 @@ Your Username is: SSharpe
 Your Password is: XtsC738*
 The URL for your database is: socem1.uopnet.plymouth.ac.uk
 You have asked for .NET hosting.  This can be found at web.socem.plymouth.ac.uk/FYP/SSharpe
-connection string: "Server=socem1.uopnet.plymouth.ac.uk;Database=COMP3000_SSharpe;Trusted_Connection=False;User = SSharpe;Password = XtsC738* "
+connection string: "Server=socem1.uopnet.plymouth.ac.uk;Database=COMP3000_SSharpe;Trusted_Connection=False;User = SSharpe;Password = XtsC738*"
 
 \\CENT-5-534.uopnet.plymouth.ac.uk\FYP\SSharpe
 CENT-5-534
+
+http://web.socem.plymouth.ac.uk/FYP/SSharpe/api/storages

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="COMP3000_SSharpeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Storage">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="QTY" Type="int" Nullable="false" />
+    <Property Name="Cupboard" Type="varchar" MaxLength="25" />
+    <Property Name="Room" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityContainer Name="COMP3000_SSharpeModelStoreContainer">
+    <EntitySet Name="Storage" EntityType="Self.Storage" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
