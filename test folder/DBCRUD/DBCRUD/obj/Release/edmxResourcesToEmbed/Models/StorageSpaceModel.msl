@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeModel1StoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities3">
+    <EntitySetMapping Name="StorageSpaces">
+      <EntityTypeMapping TypeName="COMP3000_SSharpeModel1.StorageSpace">
+        <MappingFragment StoreEntitySet="StorageSpace">
+          <ScalarProperty Name="SSID" ColumnName="SSID" />
+          <ScalarProperty Name="StorageName" ColumnName="StorageName" />
+          <ScalarProperty Name="RID" ColumnName="RID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

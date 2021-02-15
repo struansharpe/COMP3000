@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeModel3StoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities5">
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="COMP3000_SSharpeModel3.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="IID" ColumnName="IID" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ITID" ColumnName="ITID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeModelStoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities1">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="COMP3000_SSharpeModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="FriendlyName" ColumnName="FriendlyName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeHHModelStoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities">
+    <EntitySetMapping Name="HouseHolds">
+      <EntityTypeMapping TypeName="COMP3000_SSharpeHHModel.HouseHold">
+        <MappingFragment StoreEntitySet="HouseHold">
+          <ScalarProperty Name="HHID" ColumnName="HHID" />
+          <ScalarProperty Name="HHName" ColumnName="HHName" />
+          <ScalarProperty Name="AdminUser" ColumnName="AdminUser" />
+          <ScalarProperty Name="RestrictedUsers" ColumnName="RestrictedUsers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
