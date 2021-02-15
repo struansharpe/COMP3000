@@ -55,16 +55,34 @@ namespace DBCRUD.Controllers.PageControllers
         // GET: ItemTypes/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+
+            ItemType ItemTypeInfo = null;
+            //IList<User> UserInfo = new List<User>();
+            using (var client = new HttpClient())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage Res = await client.GetAsync("api/ItemTypes/" + id);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var Response = Res.Content.ReadAsStringAsync().Result;
+
+                    ItemTypeInfo = JsonConvert.DeserializeObject<ItemType>(Response);
+                }
+
             }
-            ItemType itemType = await db.ItemTypes.FindAsync(id);
-            if (itemType == null)
-            {
-                return HttpNotFound();
-            }
-            return View(itemType);
+            return View(ItemTypeInfo);
         }
 
         // GET: ItemTypes/Create

@@ -56,16 +56,34 @@ namespace DBCRUD.Controllers.PageControllers
         // GET: HouseHoldItems/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+
+            HouseHoldItem HHIInfo = null;
+            //IList<User> UserInfo = new List<User>();
+            using (var client = new HttpClient())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage Res = await client.GetAsync("api/HouseHoldItems/" + id);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var Response = Res.Content.ReadAsStringAsync().Result;
+
+                    HHIInfo = JsonConvert.DeserializeObject<HouseHoldItem>(Response);
+                }
+
             }
-            HouseHoldItem houseHoldItem = await db.HouseHoldItems.FindAsync(id);
-            if (houseHoldItem == null)
-            {
-                return HttpNotFound();
-            }
-            return View(houseHoldItem);
+            return View(HHIInfo);
         }
 
         // GET: HouseHoldItems/Create

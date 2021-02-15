@@ -25,6 +25,12 @@ namespace DBCRUD.Controllers.PageControllers
         {
             List<Room> RoomInfo = new List<Room>();
 
+            ViewData["CurrentFilter"] = 1;
+
+            var filtered = new List<string>();
+
+            // List<Room> FilterRoomInfo = new List<Room>();
+
             using (var client = new HttpClient())
             {
                 //Passing service base url  
@@ -45,7 +51,7 @@ namespace DBCRUD.Controllers.PageControllers
 
                     //Deserializing the response recieved from web api and storing into the storage list  
                     RoomInfo = JsonConvert.DeserializeObject<List<Room>>(RoomResponse);
-
+                    
                 }
                 //returning the storage list to view  
                 return View(RoomInfo);
@@ -53,19 +59,41 @@ namespace DBCRUD.Controllers.PageControllers
 
         }
 
+
+
+
+
         // GET: Rooms/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+
+            Room RoomInfo = null;
+            //IList<User> UserInfo = new List<User>();
+            using (var client = new HttpClient())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage Res = await client.GetAsync("api/Rooms/" + id);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var Response = Res.Content.ReadAsStringAsync().Result;
+
+                    RoomInfo = JsonConvert.DeserializeObject<Room>(Response);
+                }
+
             }
-            Room room = await db.Rooms.FindAsync(id);
-            if (room == null)
-            {
-                return HttpNotFound();
-            }
-            return View(room);
+            return View(RoomInfo);
         }
 
         // GET: Rooms/Create

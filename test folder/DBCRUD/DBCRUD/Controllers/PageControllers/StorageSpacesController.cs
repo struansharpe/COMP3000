@@ -57,16 +57,34 @@ namespace DBCRUD.Controllers.PageControllers
         // GET: StorageSpaces/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+
+            StorageSpace SSInfo = null;
+            //IList<User> UserInfo = new List<User>();
+            using (var client = new HttpClient())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage Res = await client.GetAsync("api/StorageSpaces/" + id);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var Response = Res.Content.ReadAsStringAsync().Result;
+
+                   SSInfo = JsonConvert.DeserializeObject<StorageSpace>(Response);
+                }
+
             }
-            StorageSpace storageSpace = await db.StorageSpaces.FindAsync(id);
-            if (storageSpace == null)
-            {
-                return HttpNotFound();
-            }
-            return View(storageSpace);
+            return View(SSInfo);
         }
 
         // GET: StorageSpaces/Create
