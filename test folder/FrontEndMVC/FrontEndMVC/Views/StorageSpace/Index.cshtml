@@ -35,9 +35,10 @@
             @Html.DisplayFor(modelItem => item.RID)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.SSID  }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.SSID }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.SSID  })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SSID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SSID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SSID })
+            @Html.ActionLink("Filter By Room", "FilterByRoom", new { id = item.RID })
         </td>
     </tr>
 }

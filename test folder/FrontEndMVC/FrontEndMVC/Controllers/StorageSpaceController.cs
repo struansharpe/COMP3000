@@ -51,6 +51,38 @@ namespace FrontEndMVC.Controllers
             return View(SSInfo);
         }
 
+
+        public async Task<ActionResult> FilterByRoom(int? id)
+        {
+            List<StorageSpace> StorageSpaceInfo = new List<StorageSpace>();
+
+            using (var client = new HttpClient())
+            {
+                //Passing service base url  
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Sending request to find web api REST service resource 
+                HttpResponseMessage Res = await client.GetAsync("api/StorageSpaces");
+
+                //Checking the response is successful or not which is sent using HttpClient  
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var StorageSpaceResponse = Res.Content.ReadAsStringAsync().Result;
+
+                    //Deserializing the response recieved from web api and storing into the storage list  
+                    StorageSpaceInfo = JsonConvert.DeserializeObject<List<StorageSpace>>(StorageSpaceResponse);
+
+                }
+                //returning the storage list to view  
+                return View(StorageSpaceInfo.Where(StorageSpaceItem => StorageSpaceItem.RID == id));
+            }
+
+        }
         public async Task<ActionResult> Index()
         {
             List<StorageSpace> StorageSpaceInfo = new List<StorageSpace>();

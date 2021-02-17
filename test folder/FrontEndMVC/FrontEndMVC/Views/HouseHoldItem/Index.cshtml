@@ -47,9 +47,11 @@
             @Html.DisplayFor(modelItem => item.HHID)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.HHIID }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.HHIID }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.HHIID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.HHIID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.HHIID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.HHIID })
+            @Html.ActionLink("Filter By HH", "FilterByHH", new { id = item.HHID })
+            
         </td>
     </tr>
 }

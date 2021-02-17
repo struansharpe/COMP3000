@@ -18,11 +18,17 @@ namespace DBCRUD.Controllers
     {
         private COMP3000_SSharpeEntities4 db = new COMP3000_SSharpeEntities4();
 
-        // GET: api/HouseHoldItems
+        //GET: api/HouseHoldItems
+        [HttpGet, ActionName("GetHouseHoldItems")]
         public IQueryable<HouseHoldItem> GetHouseHoldItems()
         {
             return db.HouseHoldItems;
         }
+        // GET FILTERED HHITEMS BY HH
+        [HttpGet, ActionName("GetHouseHoldItemsByHH")]
+        
+          //  return db.HouseHoldItems.Where(HouseHoldItem => HouseHoldItem.HHID == 1);
+        
 
         // GET: api/HouseHoldItems/5
         [ResponseType(typeof(HouseHoldItem))]

@@ -167,6 +167,38 @@ namespace FrontEndMVC.Controllers
 
         }
 
+        //filter by Household
+        public async Task<ActionResult> FilterByHH(int? id)
+        {
+            List<Room> RoomInfo = new List<Room>();
+
+            using (var client = new HttpClient())
+            {
+                //Passing service base url  
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Sending request to find web api REST service resource 
+                HttpResponseMessage Res = await client.GetAsync("api/Rooms");
+
+                //Checking the response is successful or not which is sent using HttpClient  
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var RoomResponse = Res.Content.ReadAsStringAsync().Result;
+
+                    //Deserializing the response recieved from web api and storing into the storage list  
+                    RoomInfo = JsonConvert.DeserializeObject<List<Room>>(RoomResponse);
+
+                }
+                //returning the storage list to view  
+                return View(RoomInfo.Where(HouseHoldItem => HouseHoldItem.HHID == id));
+            }
+
+        }
 
         // POST: Room/Delete/5
         [HttpPost]

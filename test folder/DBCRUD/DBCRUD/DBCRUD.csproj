@@ -170,13 +170,6 @@
     <Compile Include="Controllers\APIControllers\RoomsController.cs" />
     <Compile Include="Controllers\APIControllers\StorageSpacesController.cs" />
     <Compile Include="Controllers\APIControllers\UsersController.cs" />
-    <Compile Include="Controllers\HouseHoldController.cs" />
-    <Compile Include="Controllers\HouseHoldItemsController.cs" />
-    <Compile Include="Controllers\ItemsController.cs" />
-    <Compile Include="Controllers\ItemTypesController.cs" />
-    <Compile Include="Controllers\RoomsController.cs" />
-    <Compile Include="Controllers\StorageSpacesController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -477,41 +470,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\HouseHold\Create.cshtml" />
-    <Content Include="Views\HouseHold\Delete.cshtml" />
-    <Content Include="Views\HouseHold\Details.cshtml" />
-    <Content Include="Views\HouseHold\Edit.cshtml" />
-    <Content Include="Views\HouseHold\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Rooms\Create.cshtml" />
-    <Content Include="Views\Rooms\Delete.cshtml" />
-    <Content Include="Views\Rooms\Details.cshtml" />
-    <Content Include="Views\Rooms\Edit.cshtml" />
-    <Content Include="Views\Rooms\Index.cshtml" />
-    <Content Include="Views\HouseHoldItems\Create.cshtml" />
-    <Content Include="Views\HouseHoldItems\Delete.cshtml" />
-    <Content Include="Views\HouseHoldItems\Details.cshtml" />
-    <Content Include="Views\HouseHoldItems\Edit.cshtml" />
-    <Content Include="Views\HouseHoldItems\Index.cshtml" />
-    <Content Include="Views\Items\Create.cshtml" />
-    <Content Include="Views\Items\Delete.cshtml" />
-    <Content Include="Views\Items\Details.cshtml" />
-    <Content Include="Views\Items\Edit.cshtml" />
-    <Content Include="Views\Items\Index.cshtml" />
-    <Content Include="Views\ItemTypes\Create.cshtml" />
-    <Content Include="Views\ItemTypes\Delete.cshtml" />
-    <Content Include="Views\ItemTypes\Details.cshtml" />
-    <Content Include="Views\ItemTypes\Edit.cshtml" />
-    <Content Include="Views\ItemTypes\Index.cshtml" />
-    <Content Include="Views\StorageSpaces\Create.cshtml" />
-    <Content Include="Views\StorageSpaces\Delete.cshtml" />
-    <Content Include="Views\StorageSpaces\Details.cshtml" />
-    <Content Include="Views\StorageSpaces\Edit.cshtml" />
-    <Content Include="Views\StorageSpaces\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

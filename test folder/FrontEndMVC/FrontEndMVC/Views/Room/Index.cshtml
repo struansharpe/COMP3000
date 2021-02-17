@@ -37,7 +37,8 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.RID }) |
             @Html.ActionLink("Details", "Details", new { id = item.RID }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.RID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.RID })
+            @Html.ActionLink("Filter By HH", "FilterByHH", new { id = item.HHID })
         </td>
     </tr>
 }
