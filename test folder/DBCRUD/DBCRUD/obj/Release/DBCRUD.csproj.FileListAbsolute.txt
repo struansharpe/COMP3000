@@ -86,3 +86,4 @@ C:\Users\strua\Desktop\COMP3000\test folder\DBCRUD\DBCRUD\obj\Release\DBCRUD.csp
 C:\Users\strua\Desktop\COMP3000\test folder\DBCRUD\DBCRUD\obj\Release\DBCRUD.csproj.CopyComplete
 C:\Users\strua\Desktop\COMP3000\test folder\DBCRUD\DBCRUD\obj\Release\DBCRUD.dll
 C:\Users\strua\Desktop\COMP3000\test folder\DBCRUD\DBCRUD\obj\Release\DBCRUD.pdb
+C:\Users\strua\Desktop\COMP3000\test folder\DBCRUD\DBCRUD\obj\Release\DBCRUD.csprojAssemblyReference.cache

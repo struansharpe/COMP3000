@@ -170,13 +170,13 @@
     <Compile Include="Controllers\APIControllers\RoomsController.cs" />
     <Compile Include="Controllers\APIControllers\StorageSpacesController.cs" />
     <Compile Include="Controllers\APIControllers\UsersController.cs" />
-    <Compile Include="Controllers\PageControllers\HouseHoldController.cs" />
-    <Compile Include="Controllers\PageControllers\HouseHoldItemsController.cs" />
-    <Compile Include="Controllers\PageControllers\ItemsController.cs" />
-    <Compile Include="Controllers\PageControllers\ItemTypesController.cs" />
-    <Compile Include="Controllers\PageControllers\RoomsController.cs" />
-    <Compile Include="Controllers\PageControllers\StorageSpacesController.cs" />
-    <Compile Include="Controllers\PageControllers\UsersController.cs" />
+    <Compile Include="Controllers\HouseHoldController.cs" />
+    <Compile Include="Controllers\HouseHoldItemsController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\ItemTypesController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
+    <Compile Include="Controllers\StorageSpacesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -512,10 +512,10 @@
     <Content Include="Views\StorageSpaces\Details.cshtml" />
     <Content Include="Views\StorageSpaces\Edit.cshtml" />
     <Content Include="Views\StorageSpaces\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

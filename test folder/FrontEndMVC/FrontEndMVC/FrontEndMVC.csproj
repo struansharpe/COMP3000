@@ -66,6 +66,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
       <Private>True</Private>
@@ -161,6 +164,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HouseHoldController.cs" />
+    <Compile Include="Controllers\HouseHoldItemController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\ItemTypeController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\StorageSpaceController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,10 +221,42 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\HouseHold\Index.cshtml" />
+    <Content Include="Views\HouseHold\Details.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Room\Details.cshtml" />
+    <Content Include="Views\StorageSpace\Index.cshtml" />
+    <Content Include="Views\StorageSpace\Details.cshtml" />
+    <Content Include="Views\HouseHoldItem\Index.cshtml" />
+    <Content Include="Views\HouseHoldItem\Details.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
+    <Content Include="Views\ItemType\Index.cshtml" />
+    <Content Include="Views\ItemType\Details.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\HouseHold\Create.cshtml" />
+    <Content Include="Views\HouseHold\Edit.cshtml" />
+    <Content Include="Views\HouseHold\Delete.cshtml" />
+    <Content Include="Views\Room\Edit.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
+    <Content Include="Views\StorageSpace\Create.cshtml" />
+    <Content Include="Views\StorageSpace\Delete.cshtml" />
+    <Content Include="Views\StorageSpace\Edit.cshtml" />
+    <Content Include="Views\Room\Delete.cshtml" />
+    <Content Include="Views\HouseHoldItem\Delete.cshtml" />
+    <Content Include="Views\HouseHoldItem\Edit.cshtml" />
+    <Content Include="Views\HouseHoldItem\Create.cshtml" />
+    <Content Include="Views\Item\Create.cshtml" />
+    <Content Include="Views\Item\Delete.cshtml" />
+    <Content Include="Views\Item\Edit.cshtml" />
+    <Content Include="Views\ItemType\Delete.cshtml" />
+    <Content Include="Views\ItemType\Edit.cshtml" />
+    <Content Include="Views\ItemType\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

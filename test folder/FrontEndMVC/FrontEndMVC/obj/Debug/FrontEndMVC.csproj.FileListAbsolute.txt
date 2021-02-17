@@ -81,3 +81,5 @@ C:\Users\strua\Desktop\COMP3000\test folder\FrontEndMVC\FrontEndMVC\obj\Debug\Fr
 C:\Users\strua\Desktop\COMP3000\test folder\FrontEndMVC\FrontEndMVC\obj\Debug\FrontEndMVC.csproj.CopyComplete
 C:\Users\strua\Desktop\COMP3000\test folder\FrontEndMVC\FrontEndMVC\obj\Debug\FrontEndMVC.dll
 C:\Users\strua\Desktop\COMP3000\test folder\FrontEndMVC\FrontEndMVC\obj\Debug\FrontEndMVC.pdb
+C:\Users\strua\Desktop\COMP3000\test folder\FrontEndMVC\FrontEndMVC\bin\System.Net.Http.Formatting.dll
+C:\Users\strua\Desktop\COMP3000\test folder\FrontEndMVC\FrontEndMVC\bin\System.Net.Http.Formatting.xml
