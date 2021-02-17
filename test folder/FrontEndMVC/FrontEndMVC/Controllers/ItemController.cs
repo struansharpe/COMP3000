@@ -177,5 +177,37 @@ namespace FrontEndMVC.Controllers
 
             return RedirectToAction("Index");
         }
+        // filter items by Item Type
+        public async Task<ActionResult> FilterByIT(int? id)
+        {
+            List<Item> ItemInfo = new List<Item>();
+
+            using (var client = new HttpClient())
+            {
+                //Passing service base url  
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Sending request to find web api REST service resource 
+                HttpResponseMessage Res = await client.GetAsync("api/Items");
+
+                //Checking the response is successful or not which is sent using HttpClient  
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var ItemResponse = Res.Content.ReadAsStringAsync().Result;
+
+                    //Deserializing the response recieved from web api and storing into the storage list  
+                    ItemInfo = JsonConvert.DeserializeObject<List<Item>>(ItemResponse);
+
+                }
+                //returning the storage list to view  
+                return View(ItemInfo.Where(Item => Item.ITID == id));
+            }
+
+        }
     }
 }

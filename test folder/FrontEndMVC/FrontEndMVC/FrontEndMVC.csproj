@@ -257,6 +257,7 @@
     <Content Include="Views\HouseHoldItem\FilterByHH.cshtml" />
     <Content Include="Views\Room\FilterByHH.cshtml" />
     <Content Include="Views\StorageSpace\FilterByRoom.cshtml" />
+    <Content Include="Views\Item\FilterByIT.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
