@@ -24,8 +24,7 @@ namespace DBCRUD.Controllers
         {
             return db.HouseHoldItems;
         }
-        // GET FILTERED HHITEMS BY HH
-        [HttpGet, ActionName("GetHouseHoldItemsByHH")]
+       
         
           //  return db.HouseHoldItems.Where(HouseHoldItem => HouseHoldItem.HHID == 1);
         

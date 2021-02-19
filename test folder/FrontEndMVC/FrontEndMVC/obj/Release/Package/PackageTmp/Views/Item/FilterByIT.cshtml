@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FrontEndMVC.Models.Item>
+
+@{
+    ViewBag.Title = "FilterByIT";
+}
+
+<h2>FilterByIT</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ITID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IID })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Back to List", "Index")

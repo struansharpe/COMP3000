@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using DBCRUD.Adapters;
 using DBCRUD.Models;
 
 namespace DBCRUD.Controllers
@@ -16,6 +17,8 @@ namespace DBCRUD.Controllers
     public class ItemsController : ApiController
     {
         private COMP3000_SSharpeEntities5 db = new COMP3000_SSharpeEntities5();
+
+        private IBarcodeAdapter barcodeAdapter = new ImpBCDummy();
 
         // GET: api/Items
         public IQueryable<Item> GetItems()
@@ -36,8 +39,13 @@ namespace DBCRUD.Controllers
             return Ok(item);
         }
 
-        // PUT: api/Items/5
-        [ResponseType(typeof(void))]
+        [ResponseType(typeof(Item))]
+        public async Task<IHttpActionResult> GetBarcode(int barCode)
+        {
+            return (IHttpActionResult)barcodeAdapter.ReadBarcode(barCode);
+        }
+            // PUT: api/Items/5
+            [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutItem(int id, Item item)
         {
             if (!ModelState.IsValid)

@@ -49,6 +49,31 @@ namespace FrontEndMVC.Controllers
             return View(ItemInfo);
         }
 
+        private async Task<string> httpRequest(string address)
+        {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Baseurl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage Res = await client.GetAsync(address);
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    return Res.Content.ReadAsStringAsync().Result;
+                }
+
+            }
+
+            return null;
+
+        }
+
         public async Task<ActionResult> Index()
         {
             List<Item> ItemInfo = new List<Item>();
@@ -87,7 +112,12 @@ namespace FrontEndMVC.Controllers
             return await GetDeserialize(id);
         }
 
-       
+
+        public async Task<ActionResult> GetBarcode(int? id)
+        {
+            return await GetDeserialize(id);
+        }
+
 
         // GET: Item/Create
         public ActionResult Create()
