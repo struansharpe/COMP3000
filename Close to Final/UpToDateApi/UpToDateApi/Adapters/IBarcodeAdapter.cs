@@ -13,7 +13,5 @@ namespace UpToDateApi.Adapters
         Item FindProductByBarcode(int barCode);
 
 
-
-
     }
 }

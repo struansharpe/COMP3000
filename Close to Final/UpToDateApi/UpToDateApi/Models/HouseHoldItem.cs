@@ -19,5 +19,17 @@ namespace UpToDateApi.Models
         public Nullable<int> SSID { get; set; }
         public Nullable<int> IID { get; set; }
         public Nullable<int> HHID { get; set; }
+
+        public HouseHoldItem() { }
+
+        public HouseHoldItem(int ID, int qty)
+        {
+            HHIID = 1;
+            IID = ID;
+            QTY = qty;
+            HHID = null ;
+            SSID = null;
+
+        }
     }
 }

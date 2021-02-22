@@ -10,12 +10,22 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using UpToDateApi.Models;
+using UpToDateApi.Adapters;
 
 namespace UpToDateApi.Controllers.APIControllers
 {
     public class HouseHoldItemsController : ApiController
     {
         private COMP3000_SSharpeEntities4 db = new COMP3000_SSharpeEntities4();
+
+        private IShoppingAdapter shoppingListAdapter = new ImpShoppingDummy();
+
+        [ResponseType(typeof(HouseHoldItem))]
+        public async Task<IHttpActionResult> GetShopping(int shopping)
+        {
+            return Ok(shoppingListAdapter.GetShopping(shopping));
+        }
+
 
         // GET: api/HouseHoldItems
         public IQueryable<HouseHoldItem> GetHouseHoldItems()

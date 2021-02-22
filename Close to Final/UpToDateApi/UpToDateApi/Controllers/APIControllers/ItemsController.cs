@@ -10,13 +10,15 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using UpToDateApi.Models;
-//using UpToDateApi.Adapters;
+using UpToDateApi.Adapters;
+
 
 namespace UpToDateApi.Controllers.APIControllers
 {
     public class ItemsController : ApiController
     {
         private COMP3000_SSharpeEntities5 db = new COMP3000_SSharpeEntities5();
+        private IBarcodeAdapter barcodeAdapter = new ImpBCDummy();
 
         // GET: api/Items
         public IQueryable<Item> GetItems()
@@ -37,11 +39,11 @@ namespace UpToDateApi.Controllers.APIControllers
             return Ok(item);
         }
 
-        //[ResponseType(typeof(Item))]
-        //public async Task<IHttpActionResult> GetBarcode(int barCode)
-        //{
-        //    return Ok(barcodeAdapter.FindProductByBarcode(barCode));
-        //}
+        [ResponseType(typeof(Item))]
+        public async Task<IHttpActionResult> GetBarcode(int barCode)
+        {
+            return  Ok(barcodeAdapter.FindProductByBarcode(barCode));
+        }
 
 
         // PUT: api/Items/5

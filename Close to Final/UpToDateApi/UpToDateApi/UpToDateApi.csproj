@@ -130,8 +130,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapter\IBarcodeAdapter.cs" />
-    <Compile Include="Adapter\ImpBCDummy.cs" />
+    <Compile Include="Adapters\IBarcodeAdapter.cs" />
+    <Compile Include="Adapters\ImpBCDummy.cs" />
+    <Compile Include="Adapters\ImpShoppingDummy.cs" />
+    <Compile Include="Adapters\IShoppingAdapter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

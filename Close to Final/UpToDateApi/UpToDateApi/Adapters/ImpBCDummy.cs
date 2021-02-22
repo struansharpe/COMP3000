@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using UpToDateApi.Adapters;
 
 namespace UpToDateApi.Adapters
 {
-    public class ImpBCDummy : IBarcodeAdapter
+    public class ImpBCDummy: IBarcodeAdapter
     {
 
         IDictionary<int, Item> BCValue = new Dictionary<int, Item>() {
@@ -22,9 +23,9 @@ namespace UpToDateApi.Adapters
             return (Item)data;
         }
 
-        public Item FindProductByBarcode(int barCode)
+        public Item FindProductByBarcode(int shopping)
         {
-            return ReturnTranslate(BCValue[barCode]);
+            return ReturnTranslate(BCValue[shopping]);
 
         }
     }
