@@ -14,10 +14,18 @@ namespace picture.Models
     
     public partial class Room
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Room()
+        {
+            this.StorageSpaces = new HashSet<StorageSpace>();
+        }
+    
         public int RID { get; set; }
         public string RoomName { get; set; }
         public Nullable<int> HHID { get; set; }
     
         public virtual HouseHold HouseHold { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StorageSpace> StorageSpaces { get; set; }
     }
 }

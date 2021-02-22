@@ -164,7 +164,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\APIControllers\ShoppingListItemsController.cs" />
+    <Compile Include="Controllers\APIControllers\RecipesController.cs" />
     <Compile Include="Controllers\APIControllers\ShoppingListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\APIControllers\HouseHoldItemsController.cs" />
@@ -250,6 +250,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemTypeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Recipe.cs">
+      <DependentUpon>RecipeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeItem.cs">
+      <DependentUpon>RecipeItemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeItemModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeItemModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeItemModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeItemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeItemModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeItemModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecipeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Room.cs">
       <DependentUpon>RoomModel.tt</DependentUpon>
     </Compile>
@@ -270,9 +306,6 @@
     </Compile>
     <Compile Include="Models\ShoppingList.cs">
       <DependentUpon>ShoppingListModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShoppingListItem.cs">
-      <DependentUpon>ShoppingListItemModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingListItemModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -390,6 +423,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ItemTypeModel.edmx</DependentUpon>
       <LastGenOutput>ItemTypeModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RecipeItemModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RecipeItemModel.edmx</DependentUpon>
+      <LastGenOutput>RecipeItemModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RecipeItemModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RecipeItemModel.edmx</DependentUpon>
+      <LastGenOutput>RecipeItemModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RecipeModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
+      <LastGenOutput>RecipeModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RecipeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
+      <LastGenOutput>RecipeModel.cs</LastGenOutput>
     </Content>
     <Content Include="Models\RoomModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -524,6 +577,20 @@
     </EntityDeploy>
     <Content Include="Models\ShoppingListItemModel.edmx.diagram">
       <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\RecipeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RecipeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\RecipeModel.edmx.diagram">
+      <DependentUpon>RecipeModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\RecipeItemModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RecipeItemModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\RecipeItemModel.edmx.diagram">
+      <DependentUpon>RecipeItemModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -18,6 +18,8 @@ namespace picture.Models
         public Item()
         {
             this.HouseHoldItems = new HashSet<HouseHoldItem>();
+            this.ShoppingListItems = new HashSet<ShoppingListItem>();
+            this.RecipeItems = new HashSet<RecipeItem>();
         }
     
         public int IID { get; set; }
@@ -26,6 +28,10 @@ namespace picture.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HouseHoldItem> HouseHoldItems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingListItem> ShoppingListItems { get; set; }
         public virtual ItemType ItemType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RecipeItem> RecipeItems { get; set; }
     }
 }

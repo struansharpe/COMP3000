@@ -19,6 +19,7 @@ namespace picture.Models
         {
             this.Rooms = new HashSet<Room>();
             this.HouseHoldItems = new HashSet<HouseHoldItem>();
+            this.ShoppingLists = new HashSet<ShoppingList>();
         }
     
         public int HHID { get; set; }
@@ -31,6 +32,8 @@ namespace picture.Models
         public virtual ICollection<Room> Rooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HouseHoldItem> HouseHoldItems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingList> ShoppingLists { get; set; }
         public virtual User User1 { get; set; }
     }
 }

@@ -17,6 +17,9 @@ namespace FrontEndMVC.Controllers
     {
         string Baseurl = "http://web.socem.plymouth.ac.uk/FYP/SSharpe/";
 
+
+
+
         //method to get deserialized Data for individual ID
         private async Task<ActionResult> GetDeserialize(int? id)
         {
@@ -51,6 +54,9 @@ namespace FrontEndMVC.Controllers
 
        
 
+
+
+        // Get Items
         public async Task<ActionResult> Index()
         {
             List<Item> ItemInfo = new List<Item>();
@@ -210,6 +216,8 @@ namespace FrontEndMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+
         // filter items by Item Type
         public async Task<ActionResult> FilterByIT(int? id)
         {

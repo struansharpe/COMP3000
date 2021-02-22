@@ -19,6 +19,7 @@ namespace picture.Models
         {
             this.HouseHolds = new HashSet<HouseHold>();
             this.HouseHolds1 = new HashSet<HouseHold>();
+            this.Recipes = new HashSet<Recipe>();
         }
     
         public int UID { get; set; }
@@ -30,5 +31,7 @@ namespace picture.Models
         public virtual ICollection<HouseHold> HouseHolds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HouseHold> HouseHolds1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recipe> Recipes { get; set; }
     }
 }

@@ -1,0 +1,907 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="COMP3000_SSharpeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HouseHold">
+          <Key>
+            <PropertyRef Name="HHID" />
+          </Key>
+          <Property Name="HHID" Type="int" Nullable="false" />
+          <Property Name="HHName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminUser" Type="int" Nullable="false" />
+          <Property Name="RestrictedUsers" Type="int" />
+        </EntityType>
+        <EntityType Name="HouseHoldItem">
+          <Key>
+            <PropertyRef Name="HHIID" />
+          </Key>
+          <Property Name="HHIID" Type="int" Nullable="false" />
+          <Property Name="QTY" Type="int" Nullable="false" />
+          <Property Name="SSID" Type="int" />
+          <Property Name="IID" Type="int" />
+          <Property Name="HHID" Type="int" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="IID" />
+          </Key>
+          <Property Name="IID" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ITID" Type="int" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ITID" />
+          </Key>
+          <Property Name="ITID" Type="int" Nullable="false" />
+          <Property Name="ITName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Instructions" Type="varchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="RecipeItem">
+          <Key>
+            <PropertyRef Name="RecipeIID" />
+          </Key>
+          <Property Name="RecipeIID" Type="int" Nullable="false" />
+          <Property Name="Item" Type="int" />
+          <Property Name="RecipeID" Type="int" />
+          <Property Name="QTY" Type="int" Nullable="false" />
+          <Property Name="Weight" Type="int" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="int" Nullable="false" />
+          <Property Name="RoomName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HHID" Type="int" />
+        </EntityType>
+        <EntityType Name="ShoppingList">
+          <Key>
+            <PropertyRef Name="SLID" />
+          </Key>
+          <Property Name="SLID" Type="int" Nullable="false" />
+          <Property Name="HHID" Type="int" />
+        </EntityType>
+        <EntityType Name="ShoppingListItems">
+          <Key>
+            <PropertyRef Name="SLIID" />
+          </Key>
+          <Property Name="SLIID" Type="int" Nullable="false" />
+          <Property Name="SLID" Type="int" />
+          <Property Name="IID" Type="int" Nullable="false" />
+          <Property Name="ITID" Type="int" />
+          <Property Name="QTY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StorageSpace">
+          <Key>
+            <PropertyRef Name="SSID" />
+          </Key>
+          <Property Name="SSID" Type="int" Nullable="false" />
+          <Property Name="StorageName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="FriendlyName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AdminUser">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="HouseHold">
+              <PropertyRef Name="AdminUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HHID">
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseHold">
+              <PropertyRef Name="HHID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="HHID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HHoldID">
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="0..1" />
+          <End Role="HouseHoldItem" Type="Self.HouseHoldItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseHold">
+              <PropertyRef Name="HHID" />
+            </Principal>
+            <Dependent Role="HouseHoldItem">
+              <PropertyRef Name="HHID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HouseholdID">
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="0..1" />
+          <End Role="ShoppingList" Type="Self.ShoppingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseHold">
+              <PropertyRef Name="HHID" />
+            </Principal>
+            <Dependent Role="ShoppingList">
+              <PropertyRef Name="HHID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IID">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="HouseHoldItem" Type="Self.HouseHoldItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IID" />
+            </Principal>
+            <Dependent Role="HouseHoldItem">
+              <PropertyRef Name="IID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemID">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="ShoppingListItems" Type="Self.ShoppingListItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IID" />
+            </Principal>
+            <Dependent Role="ShoppingListItems">
+              <PropertyRef Name="IID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTypeID">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="0..1" />
+          <End Role="ShoppingListItems" Type="Self.ShoppingListItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ITID" />
+            </Principal>
+            <Dependent Role="ShoppingListItems">
+              <PropertyRef Name="ITID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITID">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ITID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="ITID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeID">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
+          <End Role="RecipeItem" Type="Self.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeItemID">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="RecipeItem" Type="Self.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IID" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RestrictedUsers">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="HouseHold">
+              <PropertyRef Name="RestrictedUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RID">
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="StorageSpace" Type="Self.StorageSpace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RID" />
+            </Principal>
+            <Dependent Role="StorageSpace">
+              <PropertyRef Name="RID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SLID">
+          <End Role="ShoppingList" Type="Self.ShoppingList" Multiplicity="0..1" />
+          <End Role="ShoppingListItems" Type="Self.ShoppingListItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoppingList">
+              <PropertyRef Name="SLID" />
+            </Principal>
+            <Dependent Role="ShoppingListItems">
+              <PropertyRef Name="SLID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SSID">
+          <End Role="StorageSpace" Type="Self.StorageSpace" Multiplicity="0..1" />
+          <End Role="HouseHoldItem" Type="Self.HouseHoldItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageSpace">
+              <PropertyRef Name="SSID" />
+            </Principal>
+            <Dependent Role="HouseHoldItem">
+              <PropertyRef Name="SSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="COMP3000_SSharpeModelStoreContainer">
+          <EntitySet Name="HouseHold" EntityType="Self.HouseHold" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HouseHoldItem" EntityType="Self.HouseHoldItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeItem" EntityType="Self.RecipeItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingList" EntityType="Self.ShoppingList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingListItems" EntityType="Self.ShoppingListItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageSpace" EntityType="Self.StorageSpace" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdminUser" Association="Self.FK_AdminUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="HouseHold" EntitySet="HouseHold" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HHID" Association="Self.FK_HHID">
+            <End Role="HouseHold" EntitySet="HouseHold" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HHoldID" Association="Self.FK_HHoldID">
+            <End Role="HouseHold" EntitySet="HouseHold" />
+            <End Role="HouseHoldItem" EntitySet="HouseHoldItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HouseholdID" Association="Self.FK_HouseholdID">
+            <End Role="HouseHold" EntitySet="HouseHold" />
+            <End Role="ShoppingList" EntitySet="ShoppingList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IID" Association="Self.FK_IID">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="HouseHoldItem" EntitySet="HouseHoldItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemID" Association="Self.FK_ItemID">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ShoppingListItems" EntitySet="ShoppingListItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTypeID" Association="Self.FK_ItemTypeID">
+            <End Role="ItemType" EntitySet="ItemType" />
+            <End Role="ShoppingListItems" EntitySet="ShoppingListItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITID" Association="Self.FK_ITID">
+            <End Role="ItemType" EntitySet="ItemType" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeID" Association="Self.FK_RecipeID">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="RecipeItem" EntitySet="RecipeItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeItemID" Association="Self.FK_RecipeItemID">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="RecipeItem" EntitySet="RecipeItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RestrictedUsers" Association="Self.FK_RestrictedUsers">
+            <End Role="User" EntitySet="User" />
+            <End Role="HouseHold" EntitySet="HouseHold" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RID" Association="Self.FK_RID">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="StorageSpace" EntitySet="StorageSpace" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SLID" Association="Self.FK_SLID">
+            <End Role="ShoppingList" EntitySet="ShoppingList" />
+            <End Role="ShoppingListItems" EntitySet="ShoppingListItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SSID" Association="Self.FK_SSID">
+            <End Role="StorageSpace" EntitySet="StorageSpace" />
+            <End Role="HouseHoldItem" EntitySet="HouseHoldItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User" Association="Self.FK_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="COMP3000_SSharpeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HouseHold">
+          <Key>
+            <PropertyRef Name="HHID" />
+          </Key>
+          <Property Name="HHID" Type="Int32" Nullable="false" />
+          <Property Name="HHName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdminUser" Type="Int32" Nullable="false" />
+          <Property Name="RestrictedUsers" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_AdminUser" FromRole="HouseHold" ToRole="User" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_HHID" FromRole="HouseHold" ToRole="Room" />
+          <NavigationProperty Name="HouseHoldItems" Relationship="Self.FK_HHoldID" FromRole="HouseHold" ToRole="HouseHoldItem" />
+          <NavigationProperty Name="ShoppingLists" Relationship="Self.FK_HouseholdID" FromRole="HouseHold" ToRole="ShoppingList" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_RestrictedUsers" FromRole="HouseHold" ToRole="User" />
+        </EntityType>
+        <EntityType Name="HouseHoldItem">
+          <Key>
+            <PropertyRef Name="HHIID" />
+          </Key>
+          <Property Name="HHIID" Type="Int32" Nullable="false" />
+          <Property Name="QTY" Type="Int32" Nullable="false" />
+          <Property Name="SSID" Type="Int32" />
+          <Property Name="IID" Type="Int32" />
+          <Property Name="HHID" Type="Int32" />
+          <NavigationProperty Name="HouseHold" Relationship="Self.FK_HHoldID" FromRole="HouseHoldItem" ToRole="HouseHold" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_IID" FromRole="HouseHoldItem" ToRole="Item" />
+          <NavigationProperty Name="StorageSpace" Relationship="Self.FK_SSID" FromRole="HouseHoldItem" ToRole="StorageSpace" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="IID" />
+          </Key>
+          <Property Name="IID" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ITID" Type="Int32" />
+          <NavigationProperty Name="HouseHoldItems" Relationship="Self.FK_IID" FromRole="Item" ToRole="HouseHoldItem" />
+          <NavigationProperty Name="ShoppingListItems" Relationship="Self.FK_ItemID" FromRole="Item" ToRole="ShoppingListItems" />
+          <NavigationProperty Name="ItemType" Relationship="Self.FK_ITID" FromRole="Item" ToRole="ItemType" />
+          <NavigationProperty Name="RecipeItems" Relationship="Self.FK_RecipeItemID" FromRole="Item" ToRole="RecipeItem" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ITID" />
+          </Key>
+          <Property Name="ITID" Type="Int32" Nullable="false" />
+          <Property Name="ITName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_ITID" FromRole="ItemType" ToRole="Item" />
+          <NavigationProperty Name="ShoppingListItems" Relationship="Self.FK_ItemTypeID" FromRole="ItemType" ToRole="ShoppingListItems" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Instructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="RecipeItems" Relationship="Self.FK_RecipeID" FromRole="Recipe" ToRole="RecipeItem" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User" FromRole="Recipe" ToRole="User" />
+        </EntityType>
+        <EntityType Name="RecipeItem">
+          <Key>
+            <PropertyRef Name="RecipeIID" />
+          </Key>
+          <Property Name="RecipeIID" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" />
+          <Property Name="RecipeID" Type="Int32" />
+          <Property Name="QTY" Type="Int32" Nullable="false" />
+          <Property Name="Weight" Type="Int32" />
+          <NavigationProperty Name="Item1" Relationship="Self.FK_RecipeItemID" FromRole="RecipeItem" ToRole="Item" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_RecipeID" FromRole="RecipeItem" ToRole="Recipe" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int32" Nullable="false" />
+          <Property Name="RoomName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HHID" Type="Int32" />
+          <NavigationProperty Name="HouseHold" Relationship="Self.FK_HHID" FromRole="Room" ToRole="HouseHold" />
+          <NavigationProperty Name="StorageSpaces" Relationship="Self.FK_RID" FromRole="Room" ToRole="StorageSpace" />
+        </EntityType>
+        <EntityType Name="ShoppingList">
+          <Key>
+            <PropertyRef Name="SLID" />
+          </Key>
+          <Property Name="SLID" Type="Int32" Nullable="false" />
+          <Property Name="HHID" Type="Int32" />
+          <NavigationProperty Name="HouseHold" Relationship="Self.FK_HouseholdID" FromRole="ShoppingList" ToRole="HouseHold" />
+          <NavigationProperty Name="ShoppingListItems" Relationship="Self.FK_SLID" FromRole="ShoppingList" ToRole="ShoppingListItems" />
+        </EntityType>
+        <EntityType Name="ShoppingListItem">
+          <Key>
+            <PropertyRef Name="SLIID" />
+          </Key>
+          <Property Name="SLIID" Type="Int32" Nullable="false" />
+          <Property Name="SLID" Type="Int32" />
+          <Property Name="IID" Type="Int32" Nullable="false" />
+          <Property Name="ITID" Type="Int32" />
+          <Property Name="QTY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ItemID" FromRole="ShoppingListItems" ToRole="Item" />
+          <NavigationProperty Name="ItemType" Relationship="Self.FK_ItemTypeID" FromRole="ShoppingListItems" ToRole="ItemType" />
+          <NavigationProperty Name="ShoppingList" Relationship="Self.FK_SLID" FromRole="ShoppingListItems" ToRole="ShoppingList" />
+        </EntityType>
+        <EntityType Name="StorageSpace">
+          <Key>
+            <PropertyRef Name="SSID" />
+          </Key>
+          <Property Name="SSID" Type="Int32" Nullable="false" />
+          <Property Name="StorageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RID" Type="Int32" />
+          <NavigationProperty Name="HouseHoldItems" Relationship="Self.FK_SSID" FromRole="StorageSpace" ToRole="HouseHoldItem" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_RID" FromRole="StorageSpace" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="FriendlyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HouseHolds" Relationship="Self.FK_AdminUser" FromRole="User" ToRole="HouseHold" />
+          <NavigationProperty Name="HouseHolds1" Relationship="Self.FK_RestrictedUsers" FromRole="User" ToRole="HouseHold" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_User" FromRole="User" ToRole="Recipe" />
+        </EntityType>
+        <Association Name="FK_AdminUser">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="HouseHold">
+              <PropertyRef Name="AdminUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HHID">
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseHold">
+              <PropertyRef Name="HHID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="HHID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HHoldID">
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="0..1" />
+          <End Role="HouseHoldItem" Type="Self.HouseHoldItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseHold">
+              <PropertyRef Name="HHID" />
+            </Principal>
+            <Dependent Role="HouseHoldItem">
+              <PropertyRef Name="HHID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HouseholdID">
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="0..1" />
+          <End Role="ShoppingList" Type="Self.ShoppingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HouseHold">
+              <PropertyRef Name="HHID" />
+            </Principal>
+            <Dependent Role="ShoppingList">
+              <PropertyRef Name="HHID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RestrictedUsers">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="HouseHold" Type="Self.HouseHold" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="HouseHold">
+              <PropertyRef Name="RestrictedUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IID">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="HouseHoldItem" Type="Self.HouseHoldItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IID" />
+            </Principal>
+            <Dependent Role="HouseHoldItem">
+              <PropertyRef Name="IID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SSID">
+          <End Role="StorageSpace" Type="Self.StorageSpace" Multiplicity="0..1" />
+          <End Role="HouseHoldItem" Type="Self.HouseHoldItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StorageSpace">
+              <PropertyRef Name="SSID" />
+            </Principal>
+            <Dependent Role="HouseHoldItem">
+              <PropertyRef Name="SSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemID">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="ShoppingListItems" Type="Self.ShoppingListItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IID" />
+            </Principal>
+            <Dependent Role="ShoppingListItems">
+              <PropertyRef Name="IID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITID">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ITID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="ITID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeItemID">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="RecipeItem" Type="Self.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="IID" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTypeID">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="0..1" />
+          <End Role="ShoppingListItems" Type="Self.ShoppingListItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ITID" />
+            </Principal>
+            <Dependent Role="ShoppingListItems">
+              <PropertyRef Name="ITID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecipeID">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
+          <End Role="RecipeItem" Type="Self.RecipeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeID" />
+            </Principal>
+            <Dependent Role="RecipeItem">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RID">
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="StorageSpace" Type="Self.StorageSpace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RID" />
+            </Principal>
+            <Dependent Role="StorageSpace">
+              <PropertyRef Name="RID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SLID">
+          <End Role="ShoppingList" Type="Self.ShoppingList" Multiplicity="0..1" />
+          <End Role="ShoppingListItems" Type="Self.ShoppingListItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoppingList">
+              <PropertyRef Name="SLID" />
+            </Principal>
+            <Dependent Role="ShoppingListItems">
+              <PropertyRef Name="SLID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="COMP3000_SSharpeEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HouseHolds" EntityType="Self.HouseHold" />
+          <EntitySet Name="HouseHoldItems" EntityType="Self.HouseHoldItem" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemType" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+          <EntitySet Name="RecipeItems" EntityType="Self.RecipeItem" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="ShoppingLists" EntityType="Self.ShoppingList" />
+          <EntitySet Name="ShoppingListItems" EntityType="Self.ShoppingListItem" />
+          <EntitySet Name="StorageSpaces" EntityType="Self.StorageSpace" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_AdminUser" Association="Self.FK_AdminUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="HouseHold" EntitySet="HouseHolds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HHID" Association="Self.FK_HHID">
+            <End Role="HouseHold" EntitySet="HouseHolds" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HHoldID" Association="Self.FK_HHoldID">
+            <End Role="HouseHold" EntitySet="HouseHolds" />
+            <End Role="HouseHoldItem" EntitySet="HouseHoldItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HouseholdID" Association="Self.FK_HouseholdID">
+            <End Role="HouseHold" EntitySet="HouseHolds" />
+            <End Role="ShoppingList" EntitySet="ShoppingLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RestrictedUsers" Association="Self.FK_RestrictedUsers">
+            <End Role="User" EntitySet="Users" />
+            <End Role="HouseHold" EntitySet="HouseHolds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IID" Association="Self.FK_IID">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="HouseHoldItem" EntitySet="HouseHoldItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SSID" Association="Self.FK_SSID">
+            <End Role="StorageSpace" EntitySet="StorageSpaces" />
+            <End Role="HouseHoldItem" EntitySet="HouseHoldItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemID" Association="Self.FK_ItemID">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ShoppingListItems" EntitySet="ShoppingListItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITID" Association="Self.FK_ITID">
+            <End Role="ItemType" EntitySet="ItemTypes" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeItemID" Association="Self.FK_RecipeItemID">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="RecipeItem" EntitySet="RecipeItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTypeID" Association="Self.FK_ItemTypeID">
+            <End Role="ItemType" EntitySet="ItemTypes" />
+            <End Role="ShoppingListItems" EntitySet="ShoppingListItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecipeID" Association="Self.FK_RecipeID">
+            <End Role="Recipe" EntitySet="Recipes" />
+            <End Role="RecipeItem" EntitySet="RecipeItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User" Association="Self.FK_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Recipe" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RID" Association="Self.FK_RID">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="StorageSpace" EntitySet="StorageSpaces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SLID" Association="Self.FK_SLID">
+            <End Role="ShoppingList" EntitySet="ShoppingLists" />
+            <End Role="ShoppingListItems" EntitySet="ShoppingListItems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeModelStoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities2">
+          <EntitySetMapping Name="HouseHolds">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.HouseHold">
+              <MappingFragment StoreEntitySet="HouseHold">
+                <ScalarProperty Name="HHID" ColumnName="HHID" />
+                <ScalarProperty Name="HHName" ColumnName="HHName" />
+                <ScalarProperty Name="AdminUser" ColumnName="AdminUser" />
+                <ScalarProperty Name="RestrictedUsers" ColumnName="RestrictedUsers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HouseHoldItems">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.HouseHoldItem">
+              <MappingFragment StoreEntitySet="HouseHoldItem">
+                <ScalarProperty Name="HHIID" ColumnName="HHIID" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="SSID" ColumnName="SSID" />
+                <ScalarProperty Name="IID" ColumnName="IID" />
+                <ScalarProperty Name="HHID" ColumnName="HHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="IID" ColumnName="IID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ITID" ColumnName="ITID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTypes">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.ItemType">
+              <MappingFragment StoreEntitySet="ItemType">
+                <ScalarProperty Name="ITID" ColumnName="ITID" />
+                <ScalarProperty Name="ITName" ColumnName="ITName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipes">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipe">
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeItems">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.RecipeItem">
+              <MappingFragment StoreEntitySet="RecipeItem">
+                <ScalarProperty Name="RecipeIID" ColumnName="RecipeIID" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="HHID" ColumnName="HHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingLists">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.ShoppingList">
+              <MappingFragment StoreEntitySet="ShoppingList">
+                <ScalarProperty Name="SLID" ColumnName="SLID" />
+                <ScalarProperty Name="HHID" ColumnName="HHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingListItems">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.ShoppingListItem">
+              <MappingFragment StoreEntitySet="ShoppingListItems">
+                <ScalarProperty Name="SLIID" ColumnName="SLIID" />
+                <ScalarProperty Name="SLID" ColumnName="SLID" />
+                <ScalarProperty Name="IID" ColumnName="IID" />
+                <ScalarProperty Name="ITID" ColumnName="ITID" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageSpaces">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.StorageSpace">
+              <MappingFragment StoreEntitySet="StorageSpace">
+                <ScalarProperty Name="SSID" ColumnName="SSID" />
+                <ScalarProperty Name="StorageName" ColumnName="StorageName" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="COMP3000_SSharpeModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="FriendlyName" ColumnName="FriendlyName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

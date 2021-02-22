@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d2ecba8c8b04763b4b94c29c7551069" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.HouseHold" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.HouseHoldItem" Width="1.5" PointX="18.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.Item" Width="1.5" PointX="17.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.ItemType" Width="1.5" PointX="11.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.Recipe" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.RecipeItem" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.Room" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.ShoppingList" Width="1.5" PointX="8.375" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.ShoppingListItem" Width="1.5" PointX="14.125" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.StorageSpace" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.sysdiagram" Width="1.5" PointX="25.25" PointY="12" IsExpanded="false" />
+        <EntityTypeShape EntityType="COMP3000_SSharpeModel.User" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_AdminUser" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_HHID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_HHoldID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_HouseholdID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_RestrictedUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_IID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_SSID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_ItemID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_ITID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_RecipeItemID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_ItemTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_RecipeID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_User" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_RID" ManuallyRouted="false" />
+        <AssociationConnector Association="COMP3000_SSharpeModel.FK_SLID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

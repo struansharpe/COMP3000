@@ -18,6 +18,7 @@ namespace picture.Models
         public ItemType()
         {
             this.Items = new HashSet<Item>();
+            this.ShoppingListItems = new HashSet<ShoppingListItem>();
         }
     
         public int ITID { get; set; }
@@ -25,5 +26,7 @@ namespace picture.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Item> Items { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingListItem> ShoppingListItems { get; set; }
     }
 }

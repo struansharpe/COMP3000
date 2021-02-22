@@ -26,5 +26,7 @@ namespace DBCRUD.Models
         }
     
         public virtual DbSet<ShoppingListItem> ShoppingListItems { get; set; }
+
+        public System.Data.Entity.DbSet<DBCRUD.Models.Recipe> Recipes { get; set; }
     }
 }

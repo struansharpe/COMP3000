@@ -169,6 +169,8 @@
     <Compile Include="Controllers\HouseHoldItemController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ItemTypeController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
+    <Compile Include="Controllers\RecipeItemController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\ShoppingListController.cs" />
     <Compile Include="Controllers\ShoppingListItemController.cs" />
@@ -181,6 +183,8 @@
     <Compile Include="Models\HouseHoldItem.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\RecipeItem.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\ShoppingList.cs" />
     <Compile Include="Models\ShoppingListItem.cs" />
@@ -275,6 +279,17 @@
     <Content Include="Views\ShoppingListItem\Edit.cshtml" />
     <Content Include="Views\ShoppingListItem\Details.cshtml" />
     <Content Include="Views\ShoppingListItem\FilterBySL.cshtml" />
+    <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\RecipeItem\Index.cshtml" />
+    <Content Include="Views\Recipe\Edit.cshtml" />
+    <Content Include="Views\RecipeItem\Edit.cshtml" />
+    <Content Include="Views\Recipe\Delete.cshtml" />
+    <Content Include="Views\RecipeItem\Delete.cshtml" />
+    <Content Include="Views\Recipe\Details.cshtml" />
+    <Content Include="Views\RecipeItem\Details.cshtml" />
+    <Content Include="Views\Recipe\Create.cshtml" />
+    <Content Include="Views\RecipeItem\Create.cshtml" />
+    <Content Include="Views\RecipeItem\FilterByRecipe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

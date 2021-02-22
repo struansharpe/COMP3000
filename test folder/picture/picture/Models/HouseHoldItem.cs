@@ -22,5 +22,6 @@ namespace picture.Models
     
         public virtual HouseHold HouseHold { get; set; }
         public virtual Item Item { get; set; }
+        public virtual StorageSpace StorageSpace { get; set; }
     }
 }

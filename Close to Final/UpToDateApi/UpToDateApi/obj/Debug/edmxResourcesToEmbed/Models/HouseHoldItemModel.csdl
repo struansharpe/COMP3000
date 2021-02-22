@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="COMP3000_SSharpeModel4" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="HouseHoldItem">
+    <Key>
+      <PropertyRef Name="HHIID" />
+    </Key>
+    <Property Name="HHIID" Type="Int32" Nullable="false" />
+    <Property Name="QTY" Type="Int32" Nullable="false" />
+    <Property Name="SSID" Type="Int32" />
+    <Property Name="IID" Type="Int32" />
+    <Property Name="HHID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="COMP3000_SSharpeEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HouseHoldItems" EntityType="Self.HouseHoldItem" />
+  </EntityContainer>
+</Schema>
