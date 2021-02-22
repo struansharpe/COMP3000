@@ -16,13 +16,13 @@ namespace DBCRUD.Adapters
 
       
 
-        public Item ReturnTranslate(object data)
+        private Item ReturnTranslate(object data)
         {
           
             return (Item)data;
         }
         
-        public Item ReadBarcode(int barCode)
+        public Item FindProductByBarcode(int barCode)
         {
             return ReturnTranslate(BCValue[barCode]);
 

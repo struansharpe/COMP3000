@@ -10,9 +10,9 @@ namespace DBCRUD.Adapters
     interface IBarcodeAdapter
     {
 
-        Item ReadBarcode(int barCode);
+        Item FindProductByBarcode(int barCode);
 
-         Item ReturnTranslate(object data);
+        
         
           
     }

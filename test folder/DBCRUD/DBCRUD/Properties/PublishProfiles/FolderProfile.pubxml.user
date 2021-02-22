@@ -77,10 +77,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/DBCRUD.dll">
-      <publishTime>02/16/2021 13:24:17</publishTime>
+      <publishTime>02/22/2021 11:17:48</publishTime>
     </File>
     <File Include="bin/DBCRUD.pdb">
-      <publishTime>02/16/2021 13:24:17</publishTime>
+      <publishTime>02/22/2021 11:17:48</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -340,6 +340,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Models/RoomModel.edmx.diagram">
       <publishTime>02/15/2021 09:10:13</publishTime>
     </File>
+    <File Include="Models/ShoppingListItemModel.edmx.diagram">
+      <publishTime>02/22/2021 11:14:30</publishTime>
+    </File>
+    <File Include="Models/ShoppingListModel.edmx.diagram">
+      <publishTime>02/22/2021 11:13:49</publishTime>
+    </File>
     <File Include="Models/StorageSpaceModel.edmx.diagram">
       <publishTime>02/15/2021 09:11:35</publishTime>
     </File>
@@ -376,116 +382,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Home/Index.cshtml">
       <publishTime>02/15/2021 19:16:33</publishTime>
     </File>
-    <File Include="Views/HouseHold/Create.cshtml">
-      <publishTime>02/15/2021 09:40:53</publishTime>
-    </File>
-    <File Include="Views/HouseHold/Delete.cshtml">
-      <publishTime>02/15/2021 09:40:53</publishTime>
-    </File>
-    <File Include="Views/HouseHold/Details.cshtml">
-      <publishTime>02/15/2021 09:40:54</publishTime>
-    </File>
-    <File Include="Views/HouseHold/Edit.cshtml">
-      <publishTime>02/15/2021 09:40:55</publishTime>
-    </File>
-    <File Include="Views/HouseHold/Index.cshtml">
-      <publishTime>02/15/2021 09:40:55</publishTime>
-    </File>
-    <File Include="Views/HouseHoldItems/Create.cshtml">
-      <publishTime>02/15/2021 11:33:05</publishTime>
-    </File>
-    <File Include="Views/HouseHoldItems/Delete.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/HouseHoldItems/Details.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/HouseHoldItems/Edit.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/HouseHoldItems/Index.cshtml">
-      <publishTime>02/15/2021 11:10:30</publishTime>
-    </File>
-    <File Include="Views/Items/Create.cshtml">
-      <publishTime>02/15/2021 11:33:05</publishTime>
-    </File>
-    <File Include="Views/Items/Delete.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Items/Details.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Items/Edit.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Items/Index.cshtml">
-      <publishTime>02/15/2021 11:10:30</publishTime>
-    </File>
-    <File Include="Views/ItemTypes/Create.cshtml">
-      <publishTime>02/15/2021 11:33:05</publishTime>
-    </File>
-    <File Include="Views/ItemTypes/Delete.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/ItemTypes/Details.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/ItemTypes/Edit.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/ItemTypes/Index.cshtml">
-      <publishTime>02/15/2021 11:10:30</publishTime>
-    </File>
-    <File Include="Views/Rooms/Create.cshtml">
-      <publishTime>02/15/2021 11:33:05</publishTime>
-    </File>
-    <File Include="Views/Rooms/Delete.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Rooms/Details.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Rooms/Edit.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Rooms/Index.cshtml">
-      <publishTime>02/15/2021 11:10:30</publishTime>
-    </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>02/15/2021 19:42:52</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/15/2021 12:26:55</publishTime>
-    </File>
-    <File Include="Views/StorageSpaces/Create.cshtml">
-      <publishTime>02/15/2021 11:33:05</publishTime>
-    </File>
-    <File Include="Views/StorageSpaces/Delete.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/StorageSpaces/Details.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/StorageSpaces/Edit.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/StorageSpaces/Index.cshtml">
-      <publishTime>02/15/2021 11:27:10</publishTime>
-    </File>
-    <File Include="Views/Users/Create.cshtml">
-      <publishTime>02/15/2021 12:13:50</publishTime>
-    </File>
-    <File Include="Views/Users/Delete.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Users/Details.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Users/Edit.cshtml">
-      <publishTime>02/15/2021 11:36:08</publishTime>
-    </File>
-    <File Include="Views/Users/Index.cshtml">
-      <publishTime>02/15/2021 11:10:30</publishTime>
+      <publishTime>02/22/2021 11:16:20</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>02/15/2021 09:03:25</publishTime>
@@ -494,7 +395,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2021 18:11:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/15/2021 10:18:03</publishTime>
+      <publishTime>02/22/2021 11:17:48</publishTime>
     </File>
   </ItemGroup>
 </Project>

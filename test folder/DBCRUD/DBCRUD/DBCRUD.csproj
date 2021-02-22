@@ -164,6 +164,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\APIControllers\ShoppingListItemsController.cs" />
+    <Compile Include="Controllers\APIControllers\ShoppingListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\APIControllers\HouseHoldItemsController.cs" />
     <Compile Include="Controllers\APIControllers\HouseHoldsController.cs" />
@@ -266,6 +268,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RoomModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShoppingList.cs">
+      <DependentUpon>ShoppingListModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingListItem.cs">
+      <DependentUpon>ShoppingListItemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingListItemModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListItemModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingListItemModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListItemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingListItemModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingListModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingListModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingListModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\StorageSpace.cs">
       <DependentUpon>StorageSpaceModel.tt</DependentUpon>
     </Compile>
@@ -363,6 +401,26 @@
       <DependentUpon>RoomModel.edmx</DependentUpon>
       <LastGenOutput>RoomModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\ShoppingListItemModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListItemModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ShoppingListItemModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListItemModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ShoppingListModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingListModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ShoppingListModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingListModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\StorageSpaceModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StorageSpaceModel.edmx</DependentUpon>
@@ -452,6 +510,20 @@
     </EntityDeploy>
     <Content Include="Models\ItemTypeModel.edmx.diagram">
       <DependentUpon>ItemTypeModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ShoppingListModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingListModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShoppingListModel.edmx.diagram">
+      <DependentUpon>ShoppingListModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ShoppingListItemModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingListItemModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShoppingListItemModel.edmx.diagram">
+      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

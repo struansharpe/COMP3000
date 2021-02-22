@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Diagnostics;
 
 
 namespace FrontEndMVC.Controllers
@@ -52,12 +53,65 @@ namespace FrontEndMVC.Controllers
 
 
 
-        //method for posting to api endpoint
-        private ActionResult PostMethod(User user)
+        //private async Task<string> HttpRequest(string endPoint, int? id, string type, User user )
+        //{
+
+        //    //initialising client
+        //    using (var client = new HttpClient())
+        //    {       
+        //        //specify base address for client
+        //        client.BaseAddress = new Uri(Baseurl);
+
+              
+
+        //        HttpResponseMessage Res = null;
+
+        //        switch (type)
+        //        {
+        //            case "Get":
+        //                client.DefaultRequestHeaders.Clear();
+        //                //Define request data format  
+        //                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //                Res = await client.GetAsync(endPoint+ id);
+        //                Debug.WriteLine("This is Get " + endPoint+" " + id);
+        //                break;
+        //            case "Delete":
+        //                Res = await client.DeleteAsync(endPoint + id);
+        //                Debug.WriteLine("This is Delete " + endPoint + " " + id);
+        //                break;
+        //            case "Put":
+        //                Res =  await client.PutAsJsonAsync<User>(endPoint + id, user);
+        //                Debug.WriteLine("This is Pit " + endPoint + " " + id + " " + user);
+        //                break;
+        //            case "Post":
+        //                Debug.WriteLine("This is Post " + endPoint + " " + user);
+        //                var postTask = client.PostAsJsonAsync<User>(endPoint, user);
+        //                postTask.Wait();
+        //                Res = postTask.Result;
+        //                break;
+        //        }
+
+
+        //        if (Res.IsSuccessStatusCode)
+        //        {
+        //            //Storing the response details recieved from web api                      
+
+        //            return Res.Content.ReadAsStringAsync().Result;
+        //        }
+
+        //    }
+        //    return null;
+        //}
+
+
+            //method for posting to api endpoint
+            private async Task<ActionResult> PostMethod(User user)
         {
+
+            Debug.WriteLine("This is Post " + User);
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(Baseurl + "api/Users");
+                client.BaseAddress = new Uri(Baseurl + "Users");
 
                 //HTTP POST
                 var postTask = client.PostAsJsonAsync<User>("Users/", user);
@@ -72,7 +126,9 @@ namespace FrontEndMVC.Controllers
 
             ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
 
-            return View("Index");
+            //  await HttpRequest("/", null, "Post", user);
+
+            return RedirectToAction("Index");
         }
 
 
@@ -98,14 +154,20 @@ namespace FrontEndMVC.Controllers
                     //Storing the response details recieved from web api   
                     var UserResponse = Res.Content.ReadAsStringAsync().Result;
 
+
+                    //string UserResponse = await HttpRequest("", null, "Get",null);
+
+
                     //Deserializing the response recieved from web api and storing into the storage list  
                     UsersInfo = JsonConvert.DeserializeObject<List<User>>(UserResponse);
 
-                }
-                //returning the storage list to view  
-                return View(UsersInfo);
-            }
 
+                    //returning the storage list to view  
+                    return View(UsersInfo);
+
+                }
+                return null;
+            }
         }
 
 
@@ -158,10 +220,27 @@ namespace FrontEndMVC.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
-            return PostMethod(user);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Baseurl + "api/Users");
+
+                //HTTP POST
+                var postTask = client.PostAsJsonAsync<User>("Users/", user);
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+
+            return View("Index");
         }
 
-
+        //  var result = await HttpRequest("/", null, "Post", user);
 
         // GET: Users/Delete/5
         public async Task<ActionResult> Delete(int? id)

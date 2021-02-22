@@ -170,6 +170,8 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ItemTypeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\ShoppingListController.cs" />
+    <Compile Include="Controllers\ShoppingListItemController.cs" />
     <Compile Include="Controllers\StorageSpaceController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,6 +182,8 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemType.cs" />
     <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\ShoppingList.cs" />
+    <Compile Include="Models\ShoppingListItem.cs" />
     <Compile Include="Models\StorageSpace.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -259,6 +263,18 @@
     <Content Include="Views\Room\FilterByHH.cshtml" />
     <Content Include="Views\StorageSpace\FilterByRoom.cshtml" />
     <Content Include="Views\Item\FilterByIT.cshtml" />
+    <Content Include="Views\Item\BarCode.cshtml" />
+    <Content Include="Views\ShoppingList\Index.cshtml" />
+    <Content Include="Views\ShoppingListItem\Index.cshtml" />
+    <Content Include="Views\ShoppingList\Delete.cshtml" />
+    <Content Include="Views\ShoppingList\Details.cshtml" />
+    <Content Include="Views\ShoppingList\Create.cshtml" />
+    <Content Include="Views\ShoppingList\Edit.cshtml" />
+    <Content Include="Views\ShoppingListItem\Create.cshtml" />
+    <Content Include="Views\ShoppingListItem\Delete.cshtml" />
+    <Content Include="Views\ShoppingListItem\Edit.cshtml" />
+    <Content Include="Views\ShoppingListItem\Details.cshtml" />
+    <Content Include="Views\ShoppingListItem\FilterBySL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

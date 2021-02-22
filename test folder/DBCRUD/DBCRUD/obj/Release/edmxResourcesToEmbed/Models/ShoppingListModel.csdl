@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="COMP3000_SSharpeModel5" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ShoppingList">
+    <Key>
+      <PropertyRef Name="SLID" />
+    </Key>
+    <Property Name="SLID" Type="Int32" Nullable="false" />
+    <Property Name="HHID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="COMP3000_SSharpeEntities10" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ShoppingLists" EntityType="Self.ShoppingList" />
+  </EntityContainer>
+</Schema>

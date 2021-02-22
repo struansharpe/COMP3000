@@ -49,30 +49,7 @@ namespace FrontEndMVC.Controllers
             return View(ItemInfo);
         }
 
-        private async Task<string> httpRequest(string address)
-        {
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(Baseurl);
-
-                client.DefaultRequestHeaders.Clear();
-                //Define request data format  
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage Res = await client.GetAsync(address);
-
-                if (Res.IsSuccessStatusCode)
-                {
-                    //Storing the response details recieved from web api   
-                    return Res.Content.ReadAsStringAsync().Result;
-                }
-
-            }
-
-            return null;
-
-        }
+       
 
         public async Task<ActionResult> Index()
         {
@@ -113,9 +90,35 @@ namespace FrontEndMVC.Controllers
         }
 
 
-        public async Task<ActionResult> GetBarcode(int? id)
+        public async Task<ActionResult> GetBarcode(int? barCode)
         {
-            return await GetDeserialize(id);
+            Item ItemInfo = null;
+            //IList<User> UserInfo = new List<User>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44360/");
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage Res = await client.GetAsync("api/Barcode/" + barCode);
+
+                if (barCode == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var Response = Res.Content.ReadAsStringAsync().Result;
+
+                    ItemInfo = JsonConvert.DeserializeObject<Item>(Response);
+                }
+
+            }
+            return View(ItemInfo);
         }
 
 

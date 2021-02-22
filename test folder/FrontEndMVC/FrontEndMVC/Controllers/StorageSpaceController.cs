@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
