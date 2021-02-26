@@ -77,10 +77,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/API.dll">
-      <publishTime>02/26/2021 13:20:42</publishTime>
+      <publishTime>02/26/2021 18:28:03</publishTime>
     </File>
     <File Include="bin/API.pdb">
-      <publishTime>02/26/2021 13:20:42</publishTime>
+      <publishTime>02/26/2021 18:28:03</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -325,6 +325,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Global.asax">
       <publishTime>02/26/2021 10:58:18</publishTime>
     </File>
+    <File Include="Models/DesiredStockModel.edmx.diagram">
+      <publishTime>02/26/2021 18:25:41</publishTime>
+    </File>
     <File Include="Models/HouseHoldItemModel.edmx.diagram">
       <publishTime>02/26/2021 11:07:13</publishTime>
     </File>
@@ -407,7 +410,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/26/2021 10:58:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/26/2021 13:20:43</publishTime>
+      <publishTime>02/26/2021 18:28:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

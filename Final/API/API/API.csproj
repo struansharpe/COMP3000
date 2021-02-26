@@ -162,6 +162,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DesiredStocksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseHoldItemsController.cs" />
     <Compile Include="Controllers\HouseHoldsController.cs" />
@@ -177,6 +178,24 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DesiredStock.cs">
+      <DependentUpon>DesiredStockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DesiredStockModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesiredStockModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DesiredStockModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesiredStockModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DesiredStockModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DesiredStockModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\HouseHold.cs">
       <DependentUpon>HouseHoldModel.tt</DependentUpon>
@@ -387,6 +406,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DesiredStockModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DesiredStockModel.edmx</DependentUpon>
+      <LastGenOutput>DesiredStockModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DesiredStockModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DesiredStockModel.edmx</DependentUpon>
+      <LastGenOutput>DesiredStockModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\HouseHoldItemModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HouseHoldItemModel.edmx</DependentUpon>
@@ -594,6 +623,13 @@
     </EntityDeploy>
     <Content Include="Models\ShoppingListItemsModel.edmx.diagram">
       <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DesiredStockModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DesiredStockModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DesiredStockModel.edmx.diagram">
+      <DependentUpon>DesiredStockModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

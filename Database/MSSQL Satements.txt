@@ -176,3 +176,101 @@ QTY int NOT NULL,
 Weight int 
 );
 GO 
+
+
+
+
+
+CREATE TABLE DesiredStock
+(IID int 
+CONSTRAINT FK_DSIID FOREIGN KEY (IID)
+        REFERENCES Item (IID)
+ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+		HHID int 
+CONSTRAINT FK_DSHHID FOREIGN KEY (HHID)
+        REFERENCES HouseHold (HHID)
+ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+		CONSTRAINT PK_HHIDIID PRIMARY KEY (IID,HHID),
+		QTY int NOT NULL
+)
+
+
+
+
+CREATE TRIGGER CreateHouseHoldShoppingList ON HouseHold
+AFTER INSERT
+AS 
+BEGIN
+INSERT INTO ShoppingList(HHID)
+SELECT i.HHID 
+FROM 
+inserted i;
+END
+GO
+
+
+
+
+
+USE [COMP3000_SSharpe]
+GO
+
+
+
+
+CREATE TRIGGER addingToShoppingList ON HouseHoldItem
+For UPDATE 
+AS
+
+DECLARE @HouseHoldID int
+SELECT  @HouseHoldID = HHID
+FROM inserted
+
+DECLARE @ItemID int
+SELECT @ItemID = IID
+FROM inserted
+
+DECLARE @ActualQTY int
+SELECT @ActualQTY = QTY
+FROM HouseHoldItem
+WHERE HHID = @HouseHoldID
+AND IID = @ItemID
+
+
+
+DECLARE @ShoppingListID int
+SELECT @ShoppingListID = SLID
+FROM ShoppingList
+WHERE HHID = @HouseHoldID
+
+
+DECLARE @DesiredQTY int
+SELECT @DesiredQTY = QTY
+FROM dbo.DesiredStock
+WHERE HHID = @HouseHoldID
+AND IID = @ItemID
+
+
+
+DECLARE @Urgency bit
+if(@ActualQTY> 1 )
+RETURN;
+if(@ActualQTY=0)
+SET @Urgency = 1;
+ELSE 
+SET @Urgency = 0;
+
+BEGIN
+IF EXISTS (SELECT * FROM ShoppingListItems WHERE @ShoppingListID = SLID AND @ItemID = IID)
+UPDATE dbo.ShoppingListItems 
+SET dbo.ShoppingListItems.Urgent = @Urgency
+ELSE
+INSERT INTO ShoppingListItems VALUES (@ShoppingListID,@ItemID, @DesiredQTY, @Urgency)
+END;
+GO
+
+
+
+

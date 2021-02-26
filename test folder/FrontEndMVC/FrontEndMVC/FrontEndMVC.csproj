@@ -164,6 +164,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DesiredStockController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseHoldController.cs" />
     <Compile Include="Controllers\HouseHoldItemController.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DesiredStock.cs" />
     <Compile Include="Models\HouseHold.cs" />
     <Compile Include="Models\HouseHoldItem.cs" />
     <Compile Include="Models\Item.cs" />
@@ -290,6 +292,7 @@
     <Content Include="Views\Recipe\Create.cshtml" />
     <Content Include="Views\RecipeItem\Create.cshtml" />
     <Content Include="Views\RecipeItem\FilterByRecipe.cshtml" />
+    <Content Include="Views\DesiredStock\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

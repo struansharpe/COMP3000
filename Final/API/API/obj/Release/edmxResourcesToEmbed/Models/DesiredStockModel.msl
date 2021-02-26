@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeModel11StoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities13">
+    <EntitySetMapping Name="DesiredStocks">
+      <EntityTypeMapping TypeName="COMP3000_SSharpeModel11.DesiredStock">
+        <MappingFragment StoreEntitySet="DesiredStock">
+          <ScalarProperty Name="IID" ColumnName="IID" />
+          <ScalarProperty Name="HHID" ColumnName="HHID" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

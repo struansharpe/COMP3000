@@ -8,4 +8,3 @@ connection string: "Server=socem1.uopnet.plymouth.ac.uk;Database=COMP3000_SSharp
 \\CENT-5-534.uopnet.plymouth.ac.uk\FYP\SSharpe
 CENT-5-534
 
-http://web.socem.plymouth.ac.uk/FYP/SSharpe/api/storages
