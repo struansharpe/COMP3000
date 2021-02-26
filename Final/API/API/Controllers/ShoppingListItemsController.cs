@@ -15,7 +15,7 @@ namespace API.Controllers
 {
     public class ShoppingListItemsController : ApiController
     {
-        private COMP3000_SSharpeEntities8 db = new COMP3000_SSharpeEntities8();
+        private COMP3000_SSharpeEntities12 db = new COMP3000_SSharpeEntities12();
 
         // GET: api/ShoppingListItems
         public IQueryable<ShoppingListItem> GetShoppingListItems()

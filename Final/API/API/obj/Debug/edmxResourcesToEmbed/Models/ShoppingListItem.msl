@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeModel8StoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities11">
+    <EntitySetMapping Name="ShoppingListItems">
+      <EntityTypeMapping TypeName="COMP3000_SSharpeModel8.ShoppingListItem">
+        <MappingFragment StoreEntitySet="ShoppingListItems">
+          <ScalarProperty Name="SLIID" ColumnName="SLIID" />
+          <ScalarProperty Name="SLID" ColumnName="SLID" />
+          <ScalarProperty Name="IID" ColumnName="IID" />
+          <ScalarProperty Name="ITID" ColumnName="ITID" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="Ugrent" ColumnName="Ugrent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

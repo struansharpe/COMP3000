@@ -10,7 +10,7 @@ namespace FrontEndMVC.Models
         public int SLIID { get; set; }
         public Nullable<int> SLID { get; set; }
         public int IID { get; set; }
-        public Nullable<int> ITID { get; set; }
         public int QTY { get; set; }
+        public Nullable<bool> Urgent { get; set; }
     }
 }

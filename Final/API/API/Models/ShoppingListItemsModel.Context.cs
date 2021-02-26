@@ -13,10 +13,10 @@ namespace API.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class COMP3000_SSharpeEntities8 : DbContext
+    public partial class COMP3000_SSharpeEntities12 : DbContext
     {
-        public COMP3000_SSharpeEntities8()
-            : base("name=COMP3000_SSharpeEntities8")
+        public COMP3000_SSharpeEntities12()
+            : base("name=COMP3000_SSharpeEntities12")
         {
         }
     

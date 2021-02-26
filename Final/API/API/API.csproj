@@ -308,22 +308,22 @@
       <DependentUpon>ShoppingListModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingListItem.cs">
-      <DependentUpon>ShoppingListItemModel.tt</DependentUpon>
+      <DependentUpon>ShoppingListItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShoppingListItemModel.Context.cs">
+    <Compile Include="Models\ShoppingListItemsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingListItemModel.Context.tt</DependentUpon>
+      <DependentUpon>ShoppingListItemsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShoppingListItemModel.cs">
+    <Compile Include="Models\ShoppingListItemsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingListItemModel.tt</DependentUpon>
+      <DependentUpon>ShoppingListItemsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShoppingListItemModel.Designer.cs">
+    <Compile Include="Models\ShoppingListItemsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
+      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingListModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -457,15 +457,15 @@
       <DependentUpon>RoomModel.edmx</DependentUpon>
       <LastGenOutput>RoomModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ShoppingListItemModel.Context.tt">
+    <Content Include="Models\ShoppingListItemsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
-      <LastGenOutput>ShoppingListItemModel.Context.cs</LastGenOutput>
+      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListItemsModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ShoppingListItemModel.tt">
+    <Content Include="Models\ShoppingListItemsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
-      <LastGenOutput>ShoppingListItemModel.cs</LastGenOutput>
+      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListItemsModel.cs</LastGenOutput>
     </Content>
     <Content Include="Models\ShoppingListModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -574,13 +574,6 @@
     <Content Include="Models\ShoppingListModel.edmx.diagram">
       <DependentUpon>ShoppingListModel.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\ShoppingListItemModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShoppingListItemModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ShoppingListItemModel.edmx.diagram">
-      <DependentUpon>ShoppingListItemModel.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\RecipeModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RecipeModel.Designer.cs</LastGenOutput>
@@ -594,6 +587,13 @@
     </EntityDeploy>
     <Content Include="Models\RecipeItemModel.edmx.diagram">
       <DependentUpon>RecipeItemModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ShoppingListItemsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingListItemsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShoppingListItemsModel.edmx.diagram">
+      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

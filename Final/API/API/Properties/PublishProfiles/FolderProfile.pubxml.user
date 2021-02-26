@@ -77,10 +77,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/API.dll">
-      <publishTime>02/26/2021 11:19:53</publishTime>
+      <publishTime>02/26/2021 13:20:42</publishTime>
     </File>
     <File Include="bin/API.pdb">
-      <publishTime>02/26/2021 11:19:53</publishTime>
+      <publishTime>02/26/2021 13:20:42</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -346,8 +346,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Models/RoomModel.edmx.diagram">
       <publishTime>02/26/2021 11:06:03</publishTime>
     </File>
+    <File Include="Models/ShoppingListItem.edmx.diagram">
+      <publishTime>02/26/2021 12:59:27</publishTime>
+    </File>
     <File Include="Models/ShoppingListItemModel.edmx.diagram">
       <publishTime>02/26/2021 11:10:25</publishTime>
+    </File>
+    <File Include="Models/ShoppingListItemsModel.edmx.diagram">
+      <publishTime>02/26/2021 13:18:26</publishTime>
     </File>
     <File Include="Models/ShoppingListModel.edmx.diagram">
       <publishTime>02/26/2021 11:09:37</publishTime>
@@ -401,7 +407,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/26/2021 10:58:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/26/2021 11:19:54</publishTime>
+      <publishTime>02/26/2021 13:20:43</publishTime>
     </File>
   </ItemGroup>
 </Project>

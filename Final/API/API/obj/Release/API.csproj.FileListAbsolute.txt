@@ -86,3 +86,4 @@ C:\Users\strua\Desktop\COMP3000\Final\API\API\obj\Release\API.csproj.CoreCompile
 C:\Users\strua\Desktop\COMP3000\Final\API\API\obj\Release\API.csproj.CopyComplete
 C:\Users\strua\Desktop\COMP3000\Final\API\API\obj\Release\API.dll
 C:\Users\strua\Desktop\COMP3000\Final\API\API\obj\Release\API.pdb
+C:\Users\strua\Desktop\COMP3000\Final\API\API\obj\Release\API.csprojAssemblyReference.cache
