@@ -11,7 +11,7 @@ namespace UpToDateApi.Adapters
 
         IDictionary<int, HouseHoldItem> BCValue = new Dictionary<int, HouseHoldItem>() {
             { 88887777, new HouseHoldItem(1234567, 4)},
-            { 77776666, new HouseHoldItem(2345678, 5)},
+            { 88887776, new HouseHoldItem(2345678, 5)},
             { 88889999, new HouseHoldItem(3456789, 6)}};
         //ShoppingList IShoppingAdapter.GetShopping(int item)
         //{

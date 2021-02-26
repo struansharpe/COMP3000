@@ -1,0 +1,58 @@
+﻿@model FrontEndMVC.Models.HouseHoldItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>HouseHoldItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HHIID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HHIID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QTY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QTY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SSID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HHID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HHID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HHIID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

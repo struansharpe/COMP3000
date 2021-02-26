@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="COMP3000_SSharpeModel10StoreContainer" CdmEntityContainer="COMP3000_SSharpeEntities10">
+    <EntitySetMapping Name="RecipeItems">
+      <EntityTypeMapping TypeName="COMP3000_SSharpeModel10.RecipeItem">
+        <MappingFragment StoreEntitySet="RecipeItem">
+          <ScalarProperty Name="RecipeIID" ColumnName="RecipeIID" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FrontEndMVC.Models.ShoppingListItem>
+
+@{
+    ViewBag.Title = "FilterBySL";
+}
+
+<h2>Filter</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SLIID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SLID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QTY)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SLIID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SLID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ITID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QTY)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SLIID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SLIID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SLIID })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Back to List", "Index")

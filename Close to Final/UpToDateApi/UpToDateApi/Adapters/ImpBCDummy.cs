@@ -23,9 +23,9 @@ namespace UpToDateApi.Adapters
             return (Item)data;
         }
 
-        public Item FindProductByBarcode(int shopping)
+        public Item FindProductByBarcode(int item)
         {
-            return ReturnTranslate(BCValue[shopping]);
+            return ReturnTranslate(BCValue[item]);
 
         }
     }

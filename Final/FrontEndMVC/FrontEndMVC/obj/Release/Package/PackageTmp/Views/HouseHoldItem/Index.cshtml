@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FrontEndMVC.Models.HouseHoldItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HHIID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QTY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HHID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HHIID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QTY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HHID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.HHIID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.HHIID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.HHIID })
+            @Html.ActionLink("Filter By HH", "FilterByHH", new { id = item.HHID })
+            
+        </td>
+    </tr>
+}
+
+</table>
