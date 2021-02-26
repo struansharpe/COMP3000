@@ -1,5 +1,7 @@
 USE COMP3000_SSharpe
 GO
+//all ID's are sequence 
+//Create user table where UID is primary key, friendly name is the users first name they want to be referred by, passowr and email
 
 CREATE TABLE [User]
 (UID int IDENTITY(1,1) NOT NULL,
@@ -12,7 +14,7 @@ Email varchar(50) NOT NULL
 GO
 
 
-
+//create household table PK HousHold Id , HHName is the house name, admin user is the primary user of a houshold and has full control of houshold, the users are foreign keys from the user table
 
 CREATE TABLE HouseHold
 (HHID int IDENTITY(1,1) NOT NULL,
@@ -36,7 +38,7 @@ GO
 
 
 
-
+//Create Room table Room ID is PK RoomName is the name of the room , and The House Hold ID as a FK from HouseHold
 
 CREATE TABLE Room
 (RID int IDENTITY(1,1) NOT NULL,
@@ -51,7 +53,7 @@ ON DELETE NO ACTION
 GO
 
 
-
+//StorageSpace table where storage space id is PK, storage name is its name and Room ID as FK
 
 CREATE TABLE StorageSpace
 (SSID int IDENTITY(1,1) NOT NULL,
@@ -66,7 +68,7 @@ ON DELETE NO ACTION
 GO
 
 
-
+//Item Type table that has item type ID as pk and Item Type name this is the generic item like beans, sausages
 
 CREATE TABLE ItemType
 (ITID int IDENTITY(1,1) NOT NULL,
@@ -76,7 +78,7 @@ ITName varchar (50) NOT NULL
 );
 GO
 
-
+//item table that has Item ID as the primary key, itemname which is the specific name or brand of an item like heinz beans, with Item Type ID as a foreign key
 CREATE TABLE Item
 (IID int IDENTITY(1,1) NOT NULL,
 CONSTRAINT AK_IID UNIQUE(IID),
@@ -91,6 +93,7 @@ GO
 
 
 
+//HouseHoldItem table that has HouseHold Item ID as PK, and has HouseHold ID Item ID and storage space as Foreign Keys
 
 CREATE TABLE HouseHoldItem
 (HHIID int IDENTITY(1,1) NOT NULL,
@@ -113,7 +116,7 @@ ON DELETE NO ACTION
 GO
 
 
-
+//create shopping list table, has shopping list id as primary key and household id as a foreign key
 CREATE TABLE ShoppingList
 (SLID int IDENTITY(1,1) NOT NULL,
 CONSTRAINT PK_SLID PRIMARY KEY NONCLUSTERED (SLID),
@@ -126,7 +129,7 @@ ON DELETE NO ACTION
 );
 GO
 
-
+//shopping list item shopping list item ID as Primary key, shopping list ID as foreign key Item ID, QTY int and Urgent as a bool
 
 
 CREATE TABLE ShoppingListItems
@@ -146,6 +149,8 @@ CONSTRAINT FK_ItemID FOREIGN KEY (IID)
 );
 GO
 
+//create recipe table with Recipe ID as primary key, has details and instructions for meal and UserID as  foreign key 
+
 CREATE TABLE Recipe
 (RecipeID int IDENTITY(1,1) NOT NULL,
 CONSTRAINT PK_RecipeID PRIMARY KEY NONCLUSTERED (RecipeID),
@@ -160,7 +165,7 @@ ON DELETE NO ACTION
 );
 GO
 
-
+//RecipeItem for ingredients of a recipe, Recipe Item ID as pk, Item  as Item Id and Recipe ID as FK with QTY and Wight attributes
 CREATE TABLE RecipeItem
 (RecipeIID int IDENTITY(1,1) NOT NULL,
 CONSTRAINT PK_RecipeIID PRIMARY KEY NONCLUSTERED (RecipeIID),
@@ -178,7 +183,7 @@ Weight int
 GO 
 
 
-
+//desire stock to dictate how much a user wants of each item and is the qty we add to the shopping list
 
 
 CREATE TABLE DesiredStock
@@ -197,6 +202,7 @@ ON DELETE NO ACTION
 )
 
 
+//trigger tjat after a houseHold is inserted Insert a New Shopping List where HHID== the one just created
 
 
 CREATE TRIGGER CreateHouseHoldShoppingList ON HouseHold
@@ -217,20 +223,25 @@ GO
 USE [COMP3000_SSharpe]
 GO
 
+//create / altered trigger for adding item to shopping list once low or 0
 
 
-
-CREATE TRIGGER addingToShoppingList ON HouseHoldItem
+ALTER TRIGGER [dbo].[addingToShoppingList] ON [dbo].[HouseHoldItem]
 For UPDATE 
 AS
 
+//declare variables to hold values from differnt tables, to hold the household id
 DECLARE @HouseHoldID int
 SELECT  @HouseHoldID = HHID
 FROM inserted
 
+//item id from item
+
 DECLARE @ItemID int
 SELECT @ItemID = IID
 FROM inserted
+
+//QTY From theHouseholdItem
 
 DECLARE @ActualQTY int
 SELECT @ActualQTY = QTY
@@ -239,12 +250,14 @@ WHERE HHID = @HouseHoldID
 AND IID = @ItemID
 
 
+//Shopping list ID from Shopping List
 
 DECLARE @ShoppingListID int
 SELECT @ShoppingListID = SLID
 FROM ShoppingList
 WHERE HHID = @HouseHoldID
 
+//Desired QTY from desired stock
 
 DECLARE @DesiredQTY int
 SELECT @DesiredQTY = QTY
@@ -252,15 +265,22 @@ FROM dbo.DesiredStock
 WHERE HHID = @HouseHoldID
 AND IID = @ItemID
 
-
+//Declare Urgency if the actual QTY is more than 1 return the function trigger, if QTY =0 Delete from household item where QTY =0 and add to Shopping list with urgency is true, else urgency is false
 
 DECLARE @Urgency bit
 if(@ActualQTY> 1 )
 RETURN;
 if(@ActualQTY=0)
+BEGIN
+DELETE FROM HouseHoldItem
+WHERE QTY = 0;
 SET @Urgency = 1;
+END;
 ELSE 
 SET @Urgency = 0;
+
+
+//select attributes from shopping list items where the created variables = the accompanying attribute in Shopping List Items, update the the database, set urgency and insert into Shopping List Items
 
 BEGIN
 IF EXISTS (SELECT * FROM ShoppingListItems WHERE @ShoppingListID = SLID AND @ItemID = IID)
@@ -269,7 +289,6 @@ SET dbo.ShoppingListItems.Urgent = @Urgency
 ELSE
 INSERT INTO ShoppingListItems VALUES (@ShoppingListID,@ItemID, @DesiredQTY, @Urgency)
 END;
-GO
 
 
 

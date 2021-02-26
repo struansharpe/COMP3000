@@ -19,7 +19,7 @@ namespace FrontEndMVC.Controllers
         {
            
 
-            List<DesiredStock> UsersInfo = new List<DesiredStock>();
+            List<DesiredStock> desiredStocks = new List<DesiredStock>();
 
             using (var client = new HttpClient())
             {
@@ -31,7 +31,7 @@ namespace FrontEndMVC.Controllers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 //Sending request to find web api REST service resource 
-                HttpResponseMessage Res = await client.GetAsync("api/Users");
+                HttpResponseMessage Res = await client.GetAsync("api/DesiredStocks");
 
                 //Checking the response is successful or not which is sent using HttpClient  
                 if (Res.IsSuccessStatusCode)
@@ -40,11 +40,11 @@ namespace FrontEndMVC.Controllers
                     var UserResponse = Res.Content.ReadAsStringAsync().Result;
 
                     //Deserializing the response recieved from web api and storing into the storage list  
-                    UsersInfo = JsonConvert.DeserializeObject<List<DesiredStock>>(UserResponse);
+                    desiredStocks = JsonConvert.DeserializeObject<List<DesiredStock>>(UserResponse);
 
                 }
                 //returning the storage list to view  
-                return View(UsersInfo);
+                return View(desiredStocks);
             }
 
         }
