@@ -130,6 +130,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\IBarcodeAdapter.cs" />
+    <Compile Include="Adapters\ImpBCDummy.cs" />
+    <Compile Include="Adapters\ImpShoppingDummy.cs" />
+    <Compile Include="Adapters\IShoppingAdapter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -327,22 +331,22 @@
       <DependentUpon>ShoppingListModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingListItem.cs">
-      <DependentUpon>ShoppingListItemsModel.tt</DependentUpon>
+      <DependentUpon>ShoppingListItems.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShoppingListItemsModel.Context.cs">
+    <Compile Include="Models\ShoppingListItems.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingListItemsModel.Context.tt</DependentUpon>
+      <DependentUpon>ShoppingListItems.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShoppingListItemsModel.cs">
+    <Compile Include="Models\ShoppingListItems.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingListItemsModel.tt</DependentUpon>
+      <DependentUpon>ShoppingListItems.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShoppingListItemsModel.Designer.cs">
+    <Compile Include="Models\ShoppingListItems.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
+      <DependentUpon>ShoppingListItems.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingListModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -486,15 +490,15 @@
       <DependentUpon>RoomModel.edmx</DependentUpon>
       <LastGenOutput>RoomModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ShoppingListItemsModel.Context.tt">
+    <Content Include="Models\ShoppingListItems.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
-      <LastGenOutput>ShoppingListItemsModel.Context.cs</LastGenOutput>
+      <DependentUpon>ShoppingListItems.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListItems.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ShoppingListItemsModel.tt">
+    <Content Include="Models\ShoppingListItems.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
-      <LastGenOutput>ShoppingListItemsModel.cs</LastGenOutput>
+      <DependentUpon>ShoppingListItems.edmx</DependentUpon>
+      <LastGenOutput>ShoppingListItems.cs</LastGenOutput>
     </Content>
     <Content Include="Models\ShoppingListModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -617,19 +621,19 @@
     <Content Include="Models\RecipeItemModel.edmx.diagram">
       <DependentUpon>RecipeItemModel.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\ShoppingListItemsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShoppingListItemsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ShoppingListItemsModel.edmx.diagram">
-      <DependentUpon>ShoppingListItemsModel.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\DesiredStockModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DesiredStockModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\DesiredStockModel.edmx.diagram">
       <DependentUpon>DesiredStockModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ShoppingListItems.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingListItems.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShoppingListItems.edmx.diagram">
+      <DependentUpon>ShoppingListItems.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

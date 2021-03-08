@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using API.Adapters;
 using API.Models;
 
 namespace API.Controllers
@@ -16,6 +17,14 @@ namespace API.Controllers
     public class ItemsController : ApiController
     {
         private COMP3000_SSharpeEntities5 db = new COMP3000_SSharpeEntities5();
+        private IBarcodeAdapter barcodeAdapter = new ImpBCDummy();
+
+        //get barcode information of item
+        [ResponseType(typeof(Item))]
+        public async Task<IHttpActionResult> GetBarcode(int barCode)
+        {
+            return Ok(barcodeAdapter.FindProductByBarcode(barCode));
+        }
 
         // GET: api/Items
         public IQueryable<Item> GetItems()

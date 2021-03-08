@@ -17,5 +17,19 @@ namespace API.Models
         public int IID { get; set; }
         public string ItemName { get; set; }
         public Nullable<int> ITID { get; set; }
+        public Item() { }
+        public Item(int ID, string Name)
+        {
+            IID = ID;
+            ItemName = Name;
+            ITID = null;
+        }
+
+        public Item(int ID, string Name, int TypeID)
+        {
+            IID = ID;
+            ItemName = Name;
+            ITID = TypeID;
+        }
     }
 }

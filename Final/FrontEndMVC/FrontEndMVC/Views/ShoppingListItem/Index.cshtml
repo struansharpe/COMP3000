@@ -21,38 +21,38 @@
             @Html.DisplayNameFor(model => model.IID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ITID)
+            @Html.DisplayNameFor(model => model.QTY)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QTY)
+            @Html.DisplayNameFor(model => model.Urgent)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SLIID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SLID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ITID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QTY)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.SLIID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.SLIID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.SLIID }) |
-            @Html.ActionLink("Filter By Shopping List", "FilterBySL", new { id = item.SLID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SLIID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SLID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.QTY)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Urgent)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.SLIID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.SLIID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.SLIID }) |
+        @Html.ActionLink("Filter By Shopping List", "FilterBySL", new { id = item.SLID })
+    </td>
+</tr>
 }
 
 </table>

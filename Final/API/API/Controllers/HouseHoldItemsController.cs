@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using API.Adapters;
 using API.Models;
 
 namespace API.Controllers
@@ -16,6 +17,14 @@ namespace API.Controllers
     public class HouseHoldItemsController : ApiController
     {
         private COMP3000_SSharpeEntities4 db = new COMP3000_SSharpeEntities4();
+        private IShoppingAdapter shoppingListAdapter = new ImpShoppingDummy();
+
+        //get items from shopping basket
+        [ResponseType(typeof(HouseHoldItem))]
+        public async Task<IHttpActionResult> GetShopping(int shopping)
+        {
+            return Ok(shoppingListAdapter.GetShopping(shopping));
+        }
 
         // GET: api/HouseHoldItems
         public IQueryable<HouseHoldItem> GetHouseHoldItems()

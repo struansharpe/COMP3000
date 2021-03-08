@@ -202,6 +202,9 @@ ON DELETE NO ACTION
 )
 
 
+
+
+
 //trigger tjat after a houseHold is inserted Insert a New Shopping List where HHID== the one just created
 
 
@@ -215,6 +218,11 @@ FROM
 inserted i;
 END
 GO
+
+
+
+
+
 
 
 
@@ -290,6 +298,101 @@ ELSE
 INSERT INTO ShoppingListItems VALUES (@ShoppingListID,@ItemID, @DesiredQTY, @Urgency)
 END;
 
+
+
+
+
+
+
+
+
+
+//trigger on shopping list item, a button should make the value of qty = 0, when this happens item is removed form the shopping list and added to the householod item table
+
+
+CREATE TRIGGER AddFromShoppingListToHHI ON ShoppingListItems
+AFTER UPDATE 
+AS
+DECLARE @TransferrableQTY int
+SELECT @TransferrableQTY = QTY
+FROM deleted
+
+DECLARE @ShoppingListItemID int
+SELECT @ShoppingListItemID = SLIID
+FROM deleted
+
+DECLARE @CheckingQTY int
+SELECT @CheckingQTY = QTY
+FROM inserted
+
+DECLARE @ShoppingListID int
+SELECT @ShoppingListID = SLID
+FROM deleted
+
+DECLARE @HouseHold int
+SELECT @HouseHold = HHID
+FROM ShoppingList
+WHERE SLID = @ShoppingListID
+
+DECLARE @BoughtItem int 
+SELECT @BoughtItem = IID
+FROM deleted
+
+DECLARE @CurrentStock int
+SELECT @CurrentStock = QTY
+FROM HouseHoldItem
+WHERE IID = @BoughtItem AND HHID = @HouseHold
+
+
+DECLARE @NewStockAmount int
+SET @NewStockAmount = @CurrentStock + @TransferrableQTY
+ 
+
+IF(@CheckingQTY = 0)
+BEGIN
+DELETE FROM dbo.ShoppingListItems WHERE SLIID = @ShoppingListItemID
+
+IF EXISTS (SELECT * FROM HouseHoldItem WHERE IID = @BoughtItem AND HHID = @HouseHold)
+UPDATE dbo.HouseHoldItem 
+SET QTY = @NewStockAmount
+WHERE IID = @BoughtItem AND HHID = @HouseHold
+ELSE 
+INSERT INTO HouseHoldItem VALUES (@TransferrableQTY, null,  @BoughtItem, @HouseHold)
+END;
+
+
+
+
+
+
+
+
+
+
+//trigger for adding desired stock values on insertiung into house hold item
+
+USE COMP3000_SSharpe
+GO
+
+CREATE TRIGGER AddToDesiredStock ON HouseHoldItem
+AFTER INSERT
+AS
+DECLARE @InsertedHH int
+SELECT @InsertedHH = HHID
+FROM inserted
+
+DECLARE @InsertedItem int
+SELECT @InsertedItem = IID
+FROM inserted
+
+Declare @InsertedQTY int 
+SELECT @InsertedQTY = QTY
+FROM inserted
+
+IF EXISTS (SELECT * FROM HouseHoldItem WHERE IID = @InsertedItem AND HHID = @InsertedHH)
+RETURN;
+ELSE 
+INSERT INTO DesiredStock VALUES (@InsertedItem, @InsertedHH, @InsertedQTY)
 
 
 

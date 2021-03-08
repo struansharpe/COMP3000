@@ -15,15 +15,15 @@ namespace API.Controllers
 {
     public class ShoppingListItemsController : ApiController
     {
-        private COMP3000_SSharpeEntities12 db = new COMP3000_SSharpeEntities12();
+        private COMP3000_SSharpeEntities14 db = new COMP3000_SSharpeEntities14();
 
-        // GET: api/ShoppingListItems
+        // GET: api/ShoppingListItems1
         public IQueryable<ShoppingListItem> GetShoppingListItems()
         {
             return db.ShoppingListItems;
         }
 
-        // GET: api/ShoppingListItems/5
+        // GET: api/ShoppingListItems1/5
         [ResponseType(typeof(ShoppingListItem))]
         public async Task<IHttpActionResult> GetShoppingListItem(int id)
         {
@@ -36,7 +36,7 @@ namespace API.Controllers
             return Ok(shoppingListItem);
         }
 
-        // PUT: api/ShoppingListItems/5
+        // PUT: api/ShoppingListItems1/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutShoppingListItem(int id, ShoppingListItem shoppingListItem)
         {
@@ -71,7 +71,7 @@ namespace API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ShoppingListItems
+        // POST: api/ShoppingListItems1
         [ResponseType(typeof(ShoppingListItem))]
         public async Task<IHttpActionResult> PostShoppingListItem(ShoppingListItem shoppingListItem)
         {
@@ -86,7 +86,7 @@ namespace API.Controllers
             return CreatedAtRoute("DefaultApi", new { id = shoppingListItem.SLIID }, shoppingListItem);
         }
 
-        // DELETE: api/ShoppingListItems/5
+        // DELETE: api/ShoppingListItems1/5
         [ResponseType(typeof(ShoppingListItem))]
         public async Task<IHttpActionResult> DeleteShoppingListItem(int id)
         {

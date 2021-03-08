@@ -160,25 +160,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapters\BarcodeAdapter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DesiredStockController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomePagesController.cs" />
     <Compile Include="Controllers\HouseHoldController.cs" />
     <Compile Include="Controllers\HouseHoldItemController.cs" />
+    <Compile Include="Controllers\HouseHoldItemsPagesController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ItemTypeController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Controllers\RecipeItemController.cs" />
+    <Compile Include="Controllers\RecipePagesController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\ShoppingListController.cs" />
     <Compile Include="Controllers\ShoppingListItemController.cs" />
+    <Compile Include="Controllers\ShoppingListPagesController.cs" />
     <Compile Include="Controllers\StorageSpaceController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DesiredStock.cs" />
     <Compile Include="Models\HouseHold.cs" />
     <Compile Include="Models\HouseHoldItem.cs" />
     <Compile Include="Models\Item.cs" />
@@ -290,9 +295,14 @@
     <Content Include="Views\Recipe\Create.cshtml" />
     <Content Include="Views\RecipeItem\Create.cshtml" />
     <Content Include="Views\RecipeItem\FilterByRecipe.cshtml" />
+    <Content Include="Views\DesiredStock\Index.cshtml" />
+    <Content Include="Views\HouseHoldItemsPages\Index.cshtml" />
+    <Content Include="Views\HomePages\HomePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\RecipePages\" />
+    <Folder Include="Views\ShoppingListPages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
