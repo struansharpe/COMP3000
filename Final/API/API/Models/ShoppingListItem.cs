@@ -14,6 +14,7 @@ namespace API.Models
     
     public partial class ShoppingListItem
     {
+//comment
         public int SLIID { get; set; }
         public int SLID { get; set; }
         public int IID { get; set; }
