@@ -172,6 +172,9 @@
     <Compile Include="Controllers\HouseHoldsController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ItemTypesController.cs" />
+    <Compile Include="Controllers\JoinHHITablesController.cs" />
+    <Compile Include="Controllers\JoinRITablesController.cs" />
+    <Compile Include="Controllers\JoinSLITablesController.cs" />
     <Compile Include="Controllers\RecipeItemsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
@@ -273,6 +276,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ItemTypeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\JoinHHI.cs" />
+    <Compile Include="Models\JoinRecipeItem.cs" />
+    <Compile Include="Models\JoinSLI.cs" />
     <Compile Include="Models\Recipe.cs">
       <DependentUpon>RecipeModel.tt</DependentUpon>
     </Compile>

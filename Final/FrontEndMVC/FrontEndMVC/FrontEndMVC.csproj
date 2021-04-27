@@ -171,6 +171,9 @@
     <Compile Include="Controllers\HouseHoldItemsPagesController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ItemTypeController.cs" />
+    <Compile Include="Controllers\JoinHHIController.cs" />
+    <Compile Include="Controllers\JoinRecipeController.cs" />
+    <Compile Include="Controllers\JoinSLIController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Controllers\RecipeItemController.cs" />
     <Compile Include="Controllers\RecipePagesController.cs" />
@@ -188,6 +191,9 @@
     <Compile Include="Models\HouseHoldItem.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Models\JoinHHI.cs" />
+    <Compile Include="Models\JoinRI.cs" />
+    <Compile Include="Models\JoinSLI.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeItem.cs" />
     <Compile Include="Models\Room.cs" />
@@ -298,6 +304,9 @@
     <Content Include="Views\DesiredStock\Index.cshtml" />
     <Content Include="Views\HouseHoldItemsPages\Index.cshtml" />
     <Content Include="Views\HomePages\HomePage.cshtml" />
+    <Content Include="Views\JoinHHI\Index.cshtml" />
+    <Content Include="Views\JoinRecipe\Index.cshtml" />
+    <Content Include="Views\JoinSLI\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
