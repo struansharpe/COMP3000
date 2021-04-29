@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FrontEndMVC.Models.JoinRHH>
+
+@{
+    ViewBag.Title = "FilterByHouseHold";
+}
+
+<h2>FilterByHouseHold</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.GetRoom.RID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetRoom.RoomName)</th>
+        <th>@Html.DisplayNameFor(model => model.GetRoom.HHID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetHouseHold.HHName)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.GetRoom.RID) </td>
+            <td>@Html.DisplayFor(modelItem => item.GetRoom.RoomName) </td>
+            <td>@Html.DisplayFor(modelItem => item.GetRoom.HHID) </td>
+            <td>@Html.DisplayFor(modelItem => item.GetHouseHold.HHName) </td>
+          
+            <td> </td>
+        </tr>
+    }
+
+</table>

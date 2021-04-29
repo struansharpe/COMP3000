@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\strua\Desktop\COMP3000\Final\Server</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\strua\Desktop\test folder</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -77,10 +77,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/API.dll">
-      <publishTime>03/08/2021 11:49:24</publishTime>
+      <publishTime>04/29/2021 10:32:55</publishTime>
     </File>
     <File Include="bin/API.pdb">
-      <publishTime>03/08/2021 11:49:24</publishTime>
+      <publishTime>04/29/2021 10:32:55</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -404,7 +404,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/26/2021 10:58:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/08/2021 11:43:40</publishTime>
+      <publishTime>04/29/2021 10:26:58</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FrontEndMVC.Models.JoinHHI>
+
+@{
+    ViewBag.Title = "FilterByHouseHold";
+}
+
+<h2>FilterByHouseHold</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.GetHouseHoldItem.HHID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetHouseHold.HHName)</th>
+        <th>@Html.DisplayNameFor(model => model.GetHouseHoldItem.HHIID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetHouseHoldItem.IID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetItem.ItemName)</th>
+        <th>@Html.DisplayNameFor(model => model.GetHouseHoldItem.QTY)</th>
+        <th>@Html.DisplayNameFor(model => model.GetHouseHoldItem.SSID)</th>
+        @*<th>IID</th>
+            <th>ITID</th>*@
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.GetHouseHoldItem.HHID)</td>
+            <td>@Html.DisplayFor(modelItem => item.GetHouseHold.HHName)</td>
+            <td>@Html.DisplayFor(modelItem => item.GetHouseHoldItem.HHIID)</td>
+            <td>@Html.DisplayFor(modelItem => item.GetHouseHoldItem.IID)</td>
+            <td>@Html.DisplayFor(modelItem => item.GetItem.ItemName)</td>
+            <td>@Html.DisplayFor(modelItem => item.GetHouseHoldItem.QTY)</td>
+            <td>@Html.DisplayFor(modelItem => item.GetHouseHoldItem.SSID)</td>
+            @*<td>@item.GetItem.IID</td>*@
+            @*<td>@item.GetItem.ITID</td>*@
+
+        </tr>
+    }
+
+</table>

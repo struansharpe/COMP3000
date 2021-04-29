@@ -16,13 +16,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Users", "Index", "Users")</li>
                     <li>@Html.ActionLink("House Holds", "Index", "HouseHold")</li>
                     <li>@Html.ActionLink("Rooms", "Index", "Room")</li>
@@ -30,7 +28,15 @@
                     <li>@Html.ActionLink("House Hold Items", "Index", "HouseHoldItem")</li>
                     <li>@Html.ActionLink("Items", "Index", "Item")</li>
                     <li>@Html.ActionLink("Item Types", "Index", "ItemType")</li>
-                    
+                    <li>@Html.ActionLink("Shopping Lists", "Index", "ShoppingList")</li>
+                    <li>@Html.ActionLink("Shopping List Items", "Index", "ShoppingListItem")</li>
+                    <li>@Html.ActionLink("Recipes", "Index", "Recipe")</li>
+                    <li>@Html.ActionLink("Recipe Items", "Index", "RecipeItem")</li>
+                    <li>@Html.ActionLink("Desired Stock", "Index", "DesiredStock")</li>
+                    <li>@Html.ActionLink("Ingredients by a HH", "Index", "HouseHoldItemsPages")</li>
+                    <li>@Html.ActionLink("HouseHoldItems", "Index", "JoinHHI")</li>
+                    <li>@Html.ActionLink("Shopping list", "Index", "JoinSLI")</li>
+                    <li>@Html.ActionLink("Ingredients", "Index", "JoinRecipe")</li>
                 </ul>
             </div>
         </div>

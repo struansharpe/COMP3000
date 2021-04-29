@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FrontEndMVC.Models.JoinSLI>
+
+@{
+    ViewBag.Title = "FilterByShoppingList";
+}
+
+<h2>FilterByShoppingList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.GetShoppingListItem.IID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetItem.ItemName)</th>
+        <th>@Html.DisplayNameFor(model => model.GetShoppingListItem.QTY)</th>
+        <th>@Html.DisplayNameFor(model => model.GetShoppingListItem.SLID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetShoppingListItem.SLIID)</th>
+        <th>@Html.DisplayNameFor(model => model.GetShoppingListItem.Urgent)</th>
+        @*<th>IID</th>*@
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.GetShoppingListItem.IID)</td>
+            <td>@Html.DisplayFor(model => item.GetItem.ItemName)</td>
+            <td>@Html.DisplayFor(model => item.GetShoppingListItem.QTY)</td>
+            <td>@Html.DisplayFor(model => item.GetShoppingListItem.SLID)</td>
+            <td>@Html.DisplayFor(model => item.GetShoppingListItem.SLIID)</td>
+            <td>@Html.DisplayFor(model => item.GetShoppingListItem.Urgent)</td>
+          
+            @*<td>@item.GetItem.IID</td>*@
+
+        </tr>
+    }
+
+</table>

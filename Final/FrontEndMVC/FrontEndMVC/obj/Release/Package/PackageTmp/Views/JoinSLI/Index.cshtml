@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FrontEndMVC.Models.JoinSLI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>IID</th>
+        <th>ItemName</th>
+        <th>QTY</th>
+        <th>SLID</th>
+        <th>SLIID</th>
+        <th>Urgent</th>
+        @*<th>IID</th>*@
+        
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>@item.GetShoppingListItem.IID</td>
+    <td>@item.GetItem.ItemName</td>
+    <td>@item.GetShoppingListItem.QTY</td>
+    <td>@item.GetShoppingListItem.SLID</td>
+    <td>@item.GetShoppingListItem.SLIID</td>
+    <td>@item.GetShoppingListItem.Urgent</td>
+    @*<td>@item.GetItem.IID</td>*@
+    
+</tr>
+}
+
+</table>

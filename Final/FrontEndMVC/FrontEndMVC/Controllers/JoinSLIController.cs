@@ -28,5 +28,23 @@ namespace FrontEndMVC.Controllers
             }
             return View(jc);
         }
+        public ActionResult FilterByShoppingList(int? id)
+        {
+            IEnumerable<JoinSLI> jc = null;
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("http://web.socem.plymouth.ac.uk/FYP/SSharpe/api/");
+
+            var consumeapi = hc.GetAsync("JoinSLITables");
+            consumeapi.Wait();
+
+            var readdata = consumeapi.Result;
+            if (readdata.IsSuccessStatusCode)
+            {
+                var displaydata = readdata.Content.ReadAsAsync<IList<JoinSLI>>();
+                displaydata.Wait();
+                jc = displaydata.Result;
+            }
+            return View(jc.Where(Item => Item.GetShoppingListItem.SLID == id));
+        }
     }
 }

@@ -1,0 +1,58 @@
+﻿@model FrontEndMVC.Models.ShoppingListItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShoppingListItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SLIID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLIID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SLID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QTY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QTY)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Urgent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urgent)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.SLIID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

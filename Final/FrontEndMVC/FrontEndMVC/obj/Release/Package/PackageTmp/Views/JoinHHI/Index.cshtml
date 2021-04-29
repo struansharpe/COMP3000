@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FrontEndMVC.Models.JoinHHI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    
+</p>
+<table class="table">
+    <tr>
+        <th>HHID</th>
+        <th>HHIID</th>
+        <th>IID</th>
+        <th>QTY</th>
+        <th>SSID</th>
+        @*<th>IID</th>
+        <th>ITID</th>*@
+        <th>ItemName</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>@item.GetHouseHoldItem.HHID</td>
+    <td>@item.GetHouseHoldItem.HHIID</td>
+    <td>@item.GetHouseHoldItem.IID</td>
+    <td>@item.GetHouseHoldItem.QTY</td>
+    <td>@item.GetHouseHoldItem.SSID</td>
+    @*<td>@item.GetItem.IID</td>*@
+    @*<td>@item.GetItem.ITID</td>*@
+    <td>@item.GetItem.ItemName</td>
+</tr>
+}
+
+</table>

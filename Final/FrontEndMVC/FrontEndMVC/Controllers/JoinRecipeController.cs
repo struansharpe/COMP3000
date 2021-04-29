@@ -30,5 +30,26 @@ namespace FrontEndMVC.Controllers
             return View(jc);
             
         }
+       
+        public ActionResult FilterByRecipe(int? id)
+        {
+            IEnumerable<JoinRI> jc = null;
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("http://web.socem.plymouth.ac.uk/FYP/SSharpe/api/");
+
+            var consumeapi = hc.GetAsync("JoinRITables");
+            consumeapi.Wait();
+
+            var readdata = consumeapi.Result;
+            if (readdata.IsSuccessStatusCode)
+            {
+                var displaydata = readdata.Content.ReadAsAsync<IList<JoinRI>>();
+                displaydata.Wait();
+                jc = displaydata.Result;
+            }
+            return View(jc.Where(Item => Item.GetRecipeItem.RecipeID == id));
+
+        }
+
     }
 }

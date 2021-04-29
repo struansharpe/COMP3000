@@ -172,8 +172,11 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ItemTypeController.cs" />
     <Compile Include="Controllers\JoinHHIController.cs" />
+    <Compile Include="Controllers\JoinHHUController.cs" />
     <Compile Include="Controllers\JoinRecipeController.cs" />
+    <Compile Include="Controllers\JoinRHHController.cs" />
     <Compile Include="Controllers\JoinSLIController.cs" />
+    <Compile Include="Controllers\JoinSSRController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Controllers\RecipeItemController.cs" />
     <Compile Include="Controllers\RecipePagesController.cs" />
@@ -192,8 +195,11 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemType.cs" />
     <Compile Include="Models\JoinHHI.cs" />
+    <Compile Include="Models\JoinHHU.cs" />
+    <Compile Include="Models\JoinRHH.cs" />
     <Compile Include="Models\JoinRI.cs" />
     <Compile Include="Models\JoinSLI.cs" />
+    <Compile Include="Models\JoinSSR.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeItem.cs" />
     <Compile Include="Models\Room.cs" />
@@ -307,6 +313,13 @@
     <Content Include="Views\JoinHHI\Index.cshtml" />
     <Content Include="Views\JoinRecipe\Index.cshtml" />
     <Content Include="Views\JoinSLI\Index.cshtml" />
+    <Content Include="Views\JoinHHU\Index.cshtml" />
+    <Content Include="Views\JoinSSR\Index.cshtml" />
+    <Content Include="Views\JoinRHH\Index.cshtml" />
+    <Content Include="Views\JoinRecipe\FilterByRecipe.cshtml" />
+    <Content Include="Views\JoinHHI\FilterByHouseHold.cshtml" />
+    <Content Include="Views\JoinSLI\FilterByShoppingList.cshtml" />
+    <Content Include="Views\JoinRHH\FilterByHouseHold.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -29,5 +29,24 @@ namespace FrontEndMVC.Controllers
             }
             return View(jc);
         }
+
+        public ActionResult FilterByHouseHold(int? id)
+        {
+            IEnumerable<JoinHHI> jc = null;
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("http://web.socem.plymouth.ac.uk/FYP/SSharpe/api/");
+
+            var consumeapi = hc.GetAsync("JoinHHITables");
+            consumeapi.Wait();
+
+            var readdata = consumeapi.Result;
+            if (readdata.IsSuccessStatusCode)
+            {
+                var displaydata = readdata.Content.ReadAsAsync<IList<JoinHHI>>();
+                displaydata.Wait();
+                jc = displaydata.Result;
+            }
+            return View(jc.Where(Item => Item.GetHouseHoldItem.HHID == id));
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace FrontEndMVC.Models
     {
         public HouseHoldItem GetHouseHoldItem { get; set; }
         public Item GetItem { get; set; }
+        public HouseHold GetHouseHold { get; set; }
     }
 }
