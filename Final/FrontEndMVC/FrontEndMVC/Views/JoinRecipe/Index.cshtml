@@ -11,10 +11,10 @@
 </p>
 <table class="table">
     <tr>
+        <th>@Html.DisplayNameFor(model => model.GetRecipeItem.RecipeID)</th>
         <th> @Html.DisplayNameFor(model => model.GetRecipeItem.Item)</th>
         <th> @Html.DisplayNameFor(model => model.GetItem.ItemName)</th>
         <th>@Html.DisplayNameFor(model => model.GetRecipeItem.QTY)</th>
-        <th>@Html.DisplayNameFor(model => model.GetRecipeItem.RecipeID)</th>
         <th>@Html.DisplayNameFor(model => model.GetRecipeItem.RecipeIID)</th>
         <th>@Html.DisplayNameFor(model => model.GetRecipeItem.Weight)</th>
 
@@ -23,16 +23,16 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td> @Html.DisplayFor(modelItem => item.GetRecipeItem.Item) </td>
-            <td>@Html.DisplayFor(modelItem => item.GetItem.ItemName) </td>
-            <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.QTY)</td>
-            <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.RecipeID) </td>
-            <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.RecipeIID) </td>
-            <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.Weight)</td>
-            <td>@Html.ActionLink("Filter by Recipe", "FilterByRecipe", new { id = item.GetRecipeItem.RecipeID })</td>
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.RecipeID) </td>
+    <td> @Html.DisplayFor(modelItem => item.GetRecipeItem.Item) </td>
+    <td>@Html.DisplayFor(modelItem => item.GetItem.ItemName) </td>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.QTY)</td>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.RecipeIID) </td>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.Weight)</td>
+    <td>@Html.ActionLink("Filter by Recipe", "FilterByRecipe", new { id = item.GetRecipeItem.RecipeID })</td>
 
-        </tr>
+</tr>
     }
 
 </table>

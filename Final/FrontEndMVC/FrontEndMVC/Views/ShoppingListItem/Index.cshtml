@@ -47,6 +47,7 @@
         @Html.DisplayFor(modelItem => item.Urgent)
     </td>
     <td>
+        @Html.ActionLink("Buy Item", "BoughtClick", new { id = item.SLIID }) |
         @Html.ActionLink("Edit", "Edit", new { id = item.SLIID }) |
         @Html.ActionLink("Details", "Details", new { id = item.SLIID }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.SLIID }) |

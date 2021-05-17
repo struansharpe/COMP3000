@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FrontEndMVC.Models.JoinRecipeRI>
+
+@{
+    ViewBag.Title = "FilterByRecipe";
+}
+
+<h2>FilterByRecipe</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.GetRecipe.RecipeID)</th>
+        <th> @Html.DisplayNameFor(model => model.GetRecipe.Details)</th>
+        <th>@Html.DisplayNameFor(model => model.GetRecipe.UserID)</th>
+        <th>@*@Html.DisplayNameFor(model => model.GetRecipe.Details)*@</th>
+        <th>@*@Html.DisplayNameFor(model => model.GetRecipe.Instructions)*@</th>
+        <th>@Html.DisplayNameFor(model => model.GetItem.ItemName)</th>
+        <th>@Html.DisplayNameFor(model => model.GetRecipeItem.QTY)</th>
+        <th>@Html.DisplayNameFor(model => model.GetRecipeItem.Weight)</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipe.RecipeID)</td>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipe.Details) </td>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipe.UserID)</td>
+    <td>@*@Html.DisplayFor(modelItem => item.GetRecipe.Details)*@</td>
+    <td>@*@Html.DisplayFor(modelItem => item.GetRecipe.Instructions)*@</td>
+    <td>@Html.DisplayFor(modelItem => item.GetItem.ItemName)</td>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.QTY)</td>
+    <td>@Html.DisplayFor(modelItem => item.GetRecipeItem.Weight)</td>
+
+</tr>
+    }
+
+</table>

@@ -207,5 +207,34 @@ namespace FrontEndMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public async Task<ActionResult> BoughtClick(int id)
+        {
+            return await GetDeserialize(id);
+        }
+
+
+        [HttpPost, ActionName("BoughtClick")]
+        public ActionResult BoughtClick(int? id, ShoppingListItem shoppingListItem)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Baseurl);
+                shoppingListItem.SLIID = (int)id;
+                //HTTP POST
+                var putTask = client.PutAsJsonAsync<ShoppingListItem>("api/ShoppingListItems/" + id, shoppingListItem);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+
+            return View(shoppingListItem);
+        }
     }
 }
